@@ -1,0 +1,106 @@
+<div class="col-sm-12">
+  <div class="white-box">
+    <div class="dt-responsive">
+      <div class="row full-data-header">
+        <div class="col-xs-12 col-sm-12 col-sm-12 col-md-6">
+          <div>
+            <label class="label-control">Show
+              <select class="form-control input-sm full-data-show-entry" [(ngModel)]="rowsOnPage">
+                <option [ngValue]="5">5</option>
+                <option [ngValue]="10">10</option>
+                <option [ngValue]="25">25</option>
+                <option [ngValue]="50">50</option>
+              </select>
+              entries
+            </label>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+          <div style="text-align: right;">
+            <label>Search:
+              <input type="search" [(ngModel)]="filterQuery" class="form-control input-sm full-data-search" placeholder="Search name">
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="panel-heading">User information</div>-->
+      <div class="table-responsive">
+        <table class="table table-hover table-responsive full-data-table"
+             [mfData]="data | dataFilter : filterQuery"
+             #mf="mfDataTable"
+             [mfRowsOnPage]="rowsOnPage"
+             [(mfSortBy)]="sortBy"
+             [(mfSortOrder)]="sortOrder">
+        <thead>
+        <tr>
+          <th>
+            <mfDefaultSorter  by="name">Customer</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter  by="order_id">Order ID</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter by="photo">Photo</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter  by="product">Product</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter  by="quantity">Quantity</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter by="start-date">Start date</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter by="status">Status</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter>Action</mfDefaultSorter>
+          </th>
+        </tr>
+        <tr>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of mf.data">
+          <td>{{item.name}}</td>
+          <td>{{item.order_id}}</td>
+          <td>
+            <img src="{{item.photo}}" alt="{{item.name}}" width="80px"></td>
+          <td>{{item.product}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.date}}</td>
+          <td>
+            <span class="label label-success font-weight-100" *ngIf="item.status === 'Paid'">{{item.status}}</span>
+            <span class="label label-warning font-weight-100" *ngIf="item.status === 'Pending'">{{item.status}}</span>
+            <span class="label label-danger font-weight-100" *ngIf="item.status === 'Failed'">{{item.status}}</span>
+          </td>
+          <td>
+          <td>
+            <a href="javascript:" class="text-inverse p-r-10" data-toggle="tooltip" title="Edit"><i class="ti-marker-alt"></i></a>
+            <a href="javascript:" class="text-inverse" title="Delete" data-toggle="tooltip"><i class="ti-trash"></i></a>
+          </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <th>Name</th>
+          <th>Order ID</th>
+          <th>Photo</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Start date</th>
+          <th>Satus</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td colspan="8">
+            <mfBootstrapPaginator class="pagination-main f-right"></mfBootstrapPaginator>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>

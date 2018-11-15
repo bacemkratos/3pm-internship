@@ -1,0 +1,142 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="ProjectFinancialForm">
+      <div class="panel panel-info"><!-- Project Input-->
+        <div class="panel-heading  center-block center-align">
+          <a id='12'data-toggle="collapse" href="#collapse1" >PROJECT FINANCIAL INPUT</a>
+        </div>
+        <div  id="collapse1" class=" in panel-collapse collapse" >
+          <div class="form-row  "  ><!-- START ROW 1 -->
+            <div class="panel-body">
+              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4  ">
+                <label for="projectName" class="required ">Project Name</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-product-hunt"></i></div>
+                  <input disabled [value]="projectName" type="text" class="form-control" id="projectName" placeholder="Enter project name">
+                </div>
+              </div>
+              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 ">
+                <label class="required" for="projectCode">Project Code</label>
+               <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-hashtag"></i></div>
+                 <input type="text" class="form-control" id="projectCode" [value]="projectCode"  disabled>
+              </div>
+
+              </div>
+              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                <label for="accManager" class="required ">Project Manager</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa  fa-user"></i></div>
+                  <input type="text" class="form-control" id="accManager" [value]="projectManager" disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr style="size: 2em ;"/>
+
+          <div class="form-row"><!-- START ROW 3 -->
+            <div class="panel-body">
+              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                <label for="pmoProjectCostA" class="required ">Approved PMO Project Costs </label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-euro"></i></div>
+                  <input disabled [value]="approvedCost"  type="text" class="form-control" id="pmoProjectCostA" placeholder="Enter Approved PMO Project Costs">
+                </div>
+                <label for="pmoProjectManDaytA" class="required ">Approved PMO man day affectation </label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-euro"></i></div>
+                  <input  disabled [value]="approvedManday"  type="text" class="form-control" id="pmoProjectManDaytA" placeholder="Enter Approved PMO man day affectation">
+                </div>
+              </div>
+              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                <label for="pmoProjectProfitA" class="required ">Approved PMO Target profitability</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-percent"></i></div>
+                  <input disabled [value]="approvedProf" type="text" class="form-control" id="pmoProjectProfitA" placeholder="Enter Approved PMO Target profitability">
+                </div>
+              </div>
+              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                <label for="pmoProjecthresholdA" class="required ">Approved PMO Threshold profitability</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-percent"></i></div>
+                  <input disabled [value]="approvedThresh"  type="text" class="form-control" id="pmoProjecthresholdA" placeholder="Enter Approved PMO Threshold profitability ">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row"><!-- START ROW 4 -->
+            <div class="panel-body">
+              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                <label for="saleValue" class="required ">Project Sale Value </label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-euro"></i></div>
+                  <input disabled [value]="salesValue"  type="text" class="form-control" id="saleValue" placeholder="Enter Approved PMO Project Costs">
+                </div>
+              </div>
+              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                <label for="currentBilled" class=" "> Current Billed </label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-euro"></i></div>
+                  <input  formControlName="currentBilled"  type="text" class="form-control" id="currentBilled" placeholder="Enter The Current Bill">
+                </div>
+                <span class="help-block" style="color: #e74a25" *ngIf="ProjectFinancialForm.controls['currentBilled'].hasError('pattern')"> Must be a  Float </span>
+
+              </div>
+              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                <label for="plannedBill" class="">Planned to Bill </label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-euro"></i></div>
+                  <input formControlName="plannedBill"    type="text" class="form-control" id="plannedBill" placeholder="Enter Planned Bill ">
+                </div>
+                <span class="help-block" style="color: #e74a25" *ngIf="ProjectFinancialForm.controls['plannedBill'].hasError('pattern')"> Must be a  Float </span>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row panel-body">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <button class="btn btn-md   disabled" [ngClass]="{'btn-primary': ProjectFinancialForm.valid ,'btn-danger': !ProjectFinancialForm.valid, 'disabled':!ProjectFinancialForm.valid}"
+                      (click)="submitProjectFinancialForm()" type="submit" > Save / Update </button>
+
+              <button class=" btn btn-md  btn-info" type="reset" >Reset </button>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 container">
+              <div class="alert alert-danger" *ngIf="!ProjectFinancialForm.valid && ProjectFinancialForm.touched">
+                Fill all te required Fields Before Submitting
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div><!-- END PANEL 1-->
+    </form>
+
+    <div class="panel " class=" panel panel-info"><!-- Project Input-->
+      <div class="panel-heading  center-block center-align">
+
+
+        <a id='2'data-toggle="collapse" href="#collapse2" >PROJECT Terms</a>
+      </div>
+      <div  id="collapse2" class="panel-collapse collapse" >
+        <div class="form-row  "  ><!-- START ROW 1 -->
+          <div class="panel-body">
+            <app-project-terms></app-project-terms>
+          </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+</div>
+</div>
+</div>

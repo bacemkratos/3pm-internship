@@ -1,0 +1,26 @@
+.main-menu .collapse {
+  display: block;
+}
+
+.mini-sidebar .logo span {
+  display: none;
+}
+
+.mini-sidebar .sidebar, .mini-sidebar .slimScrollDiv {
+  overflow: visible !important;
+}
+
+.mini-sidebar .scroll-sidebar {
+  overflow-x: visible !important;
+  overflow-y: hidden !important;
+}
+
+.right-sidebar {
+  display: block;
+}
+
+.mini-sidebar .sidebar-nav {
+  background: 0 0;
+}
+
+

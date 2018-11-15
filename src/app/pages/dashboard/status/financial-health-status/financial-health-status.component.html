@@ -1,0 +1,225 @@
+<div class="row" >
+  <div class="col-lg-12 col-sm-12 col-xs-12">
+    <div class="white-box">
+      <div class="vtabs customvtab">
+        <ul    class="nav projectListing" *ngIf="dashboardService.projectsList.length > 0">
+          <li class="tab " [ngClass]="{'active':dashboardService.selectedProjectIndex == i}" *ngFor="let project of dashboardService.projectsList; let i = index">
+            <a [title]="project.projectName" (click)="dashboardService.selectedProjectIndex = i;getrelatedScope();loadFinancialHealthData(project.id);
+             editingField='nothing';" data-toggle="tab" href="#vhome3" aria-expanded="false"><span > {{project.projectName}}</span> </a>
+          </li>
+        </ul>
+        <h2 *ngIf="dashboardService.projectsList.length === 0"> No projects to show.</h2>
+        <div class="tab-content" *ngIf="dashboardService.projectsList.length>0 && dashboardService.selectedProjectIndex!==-1">
+          <div id="proj1" class="tab-pane active">
+            <div class="row">
+              <div class="ribbon-wrapper col-md-11">
+                <div class="ribbon ribbon-default">Project information</div>
+                <div class="ribbon-content">
+                  <div class="row" >
+                    <div class=" col-lg-4 col-md-4 col-sm-12 ">
+                      <label for="pname">Project name:</label>
+                      <output  id="pname"> {{dashboardService.projectsList[dashboardService.selectedProjectIndex].projectName}}</output>
+                  </div>
+                  <div class="col-lg-4 col-md-4  col-sm-12">
+                      <label for="pcode">Project code:&nbsp;</label>
+                      <output id="pcode">{{dashboardService.projectsList[dashboardService.selectedProjectIndex].projectCode}}</output>
+                  </div>
+                  <div class="col-lg-4 col-md-4  col-sm-12">
+                      <label for="pm">Account manager:&nbsp;</label>
+                      <output id="pm">{{dashboardService.projectsList[dashboardService.selectedProjectIndex].AccountManager}}</output>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <table class="table-bordered">
+                <thead>
+                <tr>
+                  <th>Scope</th>
+                  <th>Schedule</th>
+                  <th>Cost</th>
+                  <th>Resource</th>
+                  <th>Quality</th>
+                  <th>CSat</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>
+                    <button *ngIf="selectedProjectScope.scopeStatus==='good'" type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+                    <button *ngIf="selectedProjectScope.scopeStatus==='issue'" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+                    <button *ngIf="selectedProjectScope.scopeStatus==='risk'" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+                  </td>
+                  <td>
+                    <button *ngIf="selectedProjectScope.scheduleStatus==='good'" type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+                    <button *ngIf="selectedProjectScope.scheduleStatus==='issue'" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+                    <button *ngIf="selectedProjectScope.scheduleStatus==='risk'" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+                  </td>
+                  <td>
+                    <button *ngIf="selectedProjectScope.costStatus==='good'" type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+                    <button *ngIf="selectedProjectScope.costStatus==='issue'" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+                    <button *ngIf="selectedProjectScope.costStatus==='risk'" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+
+                  </td>
+                  <td>
+                    <button *ngIf="selectedProjectScope.resourceStatus==='good'" type="button" class="btn btn-success  btn-circle"><i class="fa fa-check"></i> </button>
+                    <button *ngIf="selectedProjectScope.resourceStatus==='issue'" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+                    <button *ngIf="selectedProjectScope.resourceStatus==='risk'" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+                  </td>
+                  <td>
+                    <button *ngIf="selectedProjectScope.qualityStatus==='good'" type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+                    <button *ngIf="selectedProjectScope.qualityStatus==='issue'" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+                    <button *ngIf="selectedProjectScope.qualityStatus==='risk'" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+                  </td>
+                  <td>
+                    <button *ngIf="selectedProjectScope.satisfactionStatus==='good'" type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+                    <button *ngIf="selectedProjectScope.satisfactionStatus==='issue'" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+                    <button *ngIf="selectedProjectScope.satisfactionStatus==='risk'" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            <div class="row">
+              <div class="ribbon-wrapper col-md-6">
+                <div class="ribbon ribbon-default">Total sales:</div>
+                <div class="ribbon-content">
+                  <label>Initial sale value:</label>
+                  <span>{{dashboardService.projectsList[dashboardService.selectedProjectIndex].projectSaleValue}}</span><br>
+                  <label>CR Value:&nbsp;</label>
+                  <input type="number" [(ngModel)]="cloneFinHealth.crValue" *ngIf="editingField == 'totalSales'">
+                  <span *ngIf="editingField != 'totalSales'">{{financialHealth.crValue}}</span>
+                  <span>€</span><br>
+                  <label>Total sale value:&nbsp;</label>
+                  <input type="number" [(ngModel)]="cloneFinHealth.totalSaleValue" *ngIf="editingField == 'totalSales'">
+                  <span *ngIf="editingField != 'totalSales'">{{financialHealth.totalSaleValue}}</span>
+                  <span>€</span><br>
+                  <button *ngIf="editingField != 'totalSales'" type="button" class="btn btn-default" (click)="editFinancialHealth();editingField='totalSales';">Edit</button>
+                  <button *ngIf="editingField == 'totalSales'" type="button" class="btn btn-primary" (click)="save();editingField='nothing';">Save</button>
+                  <button *ngIf="editingField == 'totalSales'" type="button" class="btn btn-default" (click)="editingField='nothing'">Cancel</button>
+                </div>
+              </div>
+              <div class="ribbon-wrapper col-md-5">
+                <div class="ribbon ribbon-default">Bill and payment</div>
+                <div class="ribbon-content">
+                  <label>Current billed:</label>
+                  <span>{{dashboardService.projectsList[dashboardService.selectedProjectIndex].currentBilled}}</span>
+                  <span>€</span><br>
+                  <label>Current payment:&nbsp;</label>
+                  <input type="number" [(ngModel)]="cloneFinHealth.currentPayment" *ngIf="editingField == 'billNPayment'">
+                  <span *ngIf="editingField != 'billNPayment'">{{financialHealth.currentPayment}}</span>
+                  <span>€</span><br>
+                  <label>Planned to bill:&nbsp;</label>
+                  <span>{{dashboardService.projectsList[dashboardService.selectedProjectIndex].plannedToBill}}</span>
+                  <span>€</span><br>
+                  <button *ngIf="editingField != 'billNPayment'" type="button" class="btn btn-default" (click)="editFinancialHealth();editingField='billNPayment';">Edit</button>
+                  <button *ngIf="editingField == 'billNPayment'" type="button" class="btn btn-primary" (click)="save();editingField='nothing';">Save</button>
+                  <button *ngIf="editingField == 'billNPayment'" type="button" class="btn btn-default" (click)="editingField='nothing'">Cancel</button>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="ribbon-wrapper col-md-11">
+                <div class="ribbon ribbon-default">Earned values</div>
+                <div class="ribbon-content">
+                  <div class="col-md-6 p-0">
+                    <div class="row">
+                      <label>Current delivery:&nbsp;</label>
+                      <input type="number" [(ngModel)]="cloneFinHealth.currentDelivery" *ngIf="editingField == 'earnedValues'">
+                      <span *ngIf="editingField != 'earnedValues'">{{financialHealth.currentDelivery}}</span>
+                      <span>€</span>
+                    </div>
+                    <div class="row">
+                      <label>Current expense:&nbsp;</label>
+                      <input type="number" [(ngModel)]="cloneFinHealth.currentExpense" *ngIf="editingField == 'earnedValues'">
+                      <span *ngIf="editingField != 'earnedValues'">{{financialHealth.currentExpense}}</span>
+                      <span>€</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6 p-0">
+                    <div class="row">
+                      <label>Planned to deliver:&nbsp;</label>
+                      <input type="number" [(ngModel)]="cloneFinHealth.plannedToDeliver" *ngIf="editingField == 'earnedValues'">
+                      <span *ngIf="editingField != 'earnedValues'">{{financialHealth.plannedToDeliver}}</span>
+                      <span>€</span>
+                    </div>
+                    <div class="row">
+                      <label>Planned expense:&nbsp;</label>
+                      <input type="number" [(ngModel)]="cloneFinHealth.plannedExpense" *ngIf="editingField == 'earnedValues'">
+                      <span *ngIf="editingField != 'earnedValues'">{{financialHealth.plannedExpense}}</span>
+                      <span>€</span>
+                    </div>
+                  </div>
+                  <button *ngIf="editingField != 'earnedValues'" type="button" class="btn btn-default" (click)="editFinancialHealth();editingField='earnedValues';">Edit</button>
+                  <button *ngIf="editingField == 'earnedValues'" type="button" class="btn btn-primary" (click)="save();editingField='nothing';">Save</button>
+                  <button *ngIf="editingField == 'earnedValues'" type="button" class="btn btn-default" (click)="editingField='nothing'">Cancel</button>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="ribbon-wrapper col-md-11">
+                <div class="ribbon ribbon-default">Margin</div>
+                <div class="ribbon-content">
+                  <div class="col-md-4 p-0">
+                    <div class="row">
+                      <label>Initial margin:&nbsp;</label>
+                      <input type="number" [(ngModel)]="cloneFinHealth.initialMarge" *ngIf="editingField == 'margin'">
+                      <span *ngIf="editingField != 'margin'">{{financialHealth.initialMarge}}</span>
+                      <span>%</span>
+                    </div>
+                  </div>
+                  <div class="col-md-4 p-0">
+                    <div class="row">
+                      <label>Current margin:&nbsp;</label>
+                      <input type="number" [(ngModel)]="cloneFinHealth.currentMarge" *ngIf="editingField == 'margin'">
+                      <span *ngIf="editingField != 'margin'">{{financialHealth.currentMarge}}</span>
+                      <span>%</span>
+                    </div>
+                  </div>
+                  <div class="col-md-4 p-0">
+                    <div class="row">
+                      <label>Planned margin:&nbsp;</label>
+                      <input type="number" [(ngModel)]="cloneFinHealth.plannedMarge" *ngIf="editingField == 'margin'">
+                      <span *ngIf="editingField != 'margin'">{{financialHealth.plannedMarge}}</span>
+                      <span>%</span>
+                    </div>
+                  </div>
+                  <button *ngIf="editingField != 'margin'" type="button" class="btn btn-default" (click)="editFinancialHealth();editingField='margin';">Edit</button>
+                  <button *ngIf="editingField == 'margin'" type="button" class="btn btn-primary" (click)="save();editingField='nothing';">Save</button>
+                  <button *ngIf="editingField == 'margin'" type="button" class="btn btn-default" (click)="editingField='nothing'">Cancel</button>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="ribbon-wrapper col-md-11">
+                <div class="ribbon ribbon-default">Comments</div>
+                <p class="ribbon-content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque metus orci, fringilla a quam at,
+                  fringilla euismod magna. Aenean vehicula sagittis est eget sagittis. Vestibulum elit neque,
+                  hendrerit vel ultricies ut, feugiat nec libero. Phasellus vulputate leo felis,
+                  in facilisis dolor convallis commodo. Nunc condimentum sit amet lectus in suscipit.
+                </p>
+                <button *ngIf="editingField != 'comments'" type="button" class="btn btn-default" (click)="editFinancialHealth();editingField='comments';">Edit</button>
+                <button *ngIf="editingField == 'comments'" type="button" class="btn btn-primary" (click)="save();editingField='nothing';">Save</button>
+                <button *ngIf="editingField == 'comments'" type="button" class="btn btn-default" (click)="editingField='nothing'">Cancel</button>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="tab-content" *ngIf=" dashboardService.selectedProjectIndex === -1">
+          <h1>plz Select a project</h1>
+        <div class="tab-content" *ngIf=" dashboardService.selectedProjectIndex===-1">
+          <h1>Please select a project.</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

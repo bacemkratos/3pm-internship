@@ -1,0 +1,84 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "cubic-demo"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/bootstrap-select/dist/css/bootstrap-select.min.css",
+        "assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css",
+        "assets/plugins/owl.carousel/owl.carousel.min.css",
+        "assets/plugins/owl.carousel/owl.theme.default.css",
+        "assets/plugins/ion-rangeslider/css/ion.rangeSlider.css",
+        "assets/plugins/ion-rangeslider/css/ion.rangeSlider.skinModern.css",
+        "assets/css/animate.css",
+        "assets/css/style.css",
+        "styles.css",
+        "assets/css/color.css"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js",
+        "assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js",
+        "../node_modules/raphael/raphael.js",
+        "../node_modules/morris.js/morris.js",
+        "../node_modules/materialize-css/dist/js/materialize.min.js",
+        "assets/plugins/gallery/js/animated-masonry-gallery.js",
+        "assets/plugins/gallery/js/jquery.isotope.min.js",
+        "assets/plugins/knob/jquery.knob.js",
+        "../node_modules/jquery-sparkline/jquery.sparkline.min.js",
+        "assets/plugins/owl.carousel/owl.carousel.min.js",
+        "assets/plugins/ion-rangeslider/js/ion-rangeSlider/ion.rangeSlider.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "component": {}
+  }
+}

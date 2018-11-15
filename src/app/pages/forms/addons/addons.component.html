@@ -1,0 +1,410 @@
+<!-- .row -->
+<div class="row">
+  <div class="col-sm-12">
+    <div class="white-box">
+      <h3 class="box-title m-b-0">Select 2</h3>
+      <p class="text-muted m-b-30"> Select2 for custom search and select</p>
+      <h5 class="m-t-30">Single select2</h5>
+      <ng-select [ngClass]="'ng-select'" [options]="simpleOption" [(ngModel)]="selectedOption"> </ng-select>
+      <h5 class="m-t-20">Multiple select boxes</h5>
+      <ng-select [ngClass]="'ng-select'" [options]="simpleOption" [(ngModel)]="selectedOptions" [multiple]="true"></ng-select>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="white-box">
+      <h3 class="box-title m-b-0">Bootstrap Select boxes</h3>
+      <p class="text-muted m-b-10">Just add bootstrap-select-min.js and same css & add class <code>.selectpicker</code></p>
+      <div class="row">
+        <div class="col-md-4">
+          <h5 class="m-t-30 m-b-10">Select box</h5>
+          <select class="selectpicker" data-style="form-control">
+            <option>Mustard</option>
+            <option>Ketchup</option>
+            <option>Relish</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <h5 class="m-t-30 m-b-10">Select boxes with optgroups</h5>
+          <select class="selectpicker" data-style="form-control">
+            <optgroup label="Picnic">
+              <option>Mustard</option>
+              <option>Ketchup</option>
+              <option>Relish</option>
+            </optgroup>
+            <optgroup label="Camping">
+              <option>Tent</option>
+              <option>Flashlight</option>
+              <option>Toilet Paper</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <h5 class="m-t-30">Multiple select boxes</h5>
+          <select class="selectpicker" multiple data-style="form-control">
+            <option>Mustard</option>
+            <option>Ketchup</option>
+            <option>Relish</option>
+          </select>
+        </div>
+      </div>
+      <h5 class="m-t-30">With colored Button Classes</h5>
+      <div class="row">
+        <div class="col-sm-4">
+          <select class="selectpicker m-b-20 m-r-10" data-style="btn-primary btn-outline">
+            <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+            <option data-tokens="mustard">Burger, Shake and a Smile</option>
+            <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <select class="selectpicker m-b-20 m-r-10" data-style="btn-info btn-outline">
+            <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+            <option data-tokens="mustard">Burger, Shake and a Smile</option>
+            <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <select class="selectpicker m-b-20 m-r-10" data-style="btn-warning btn-outline">
+            <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+            <option data-tokens="mustard">Burger, Shake and a Smile</option>
+            <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <select class="selectpicker m-b-20 m-r-10" data-style="btn-danger btn-outline">
+            <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+            <option data-tokens="mustard">Burger, Shake and a Smile</option>
+            <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <select class="selectpicker m-b-20 m-r-10" data-style="btn-success btn-outline">
+            <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+            <option data-tokens="mustard">Burger, Shake and a Smile</option>
+            <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <select class="selectpicker m-b-20" data-style="btn-default btn-outline">
+            <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+            <option data-tokens="mustard">Burger, Shake and a Smile</option>
+            <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.row -->
+<!-- .row -->
+<div class="row">
+  <div class="col-sm-6 col-xs-12">
+    <div class="white-box">
+      <h3 class="box-title">Switchery</h3>
+      <div class="row">
+        <div class="col-lg-12">
+          <h4 class="box-title">Basic</h4>
+          <p class="text-muted  font-13"> add the following line <code> color="@color"</code> to your input element. </p>
+          <div class="switchery-demo m-b-30">
+            <ui-switch color="#13dafe" checked></ui-switch>
+            <ui-switch color="#f96262" checked></ui-switch>
+            <ui-switch color="#99d683" checked></ui-switch>
+            <ui-switch color="#ffca4a" checked></ui-switch>
+            <ui-switch color="#6164c1" checked></ui-switch>
+            <ui-switch color="#3d3b3b" checked></ui-switch>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <h4 class="box-title">Sizes</h4>
+          <p class="text-muted font-13"> You can add <code> size="small", size="medium", size="large"</code> to your input element for different sizes. </p>
+          <div class="m-b-30">
+            <ui-switch color="#f96262" size="small" checked></ui-switch>
+            <ui-switch color="#99d683" size="medium" checked></ui-switch>
+            <ui-switch color="#ffca4a" size="large" checked></ui-switch>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <h4 class="box-title">Switch color</h4>
+          <p class="text-muted font-13"> You can apply <code> color="@color" switchColor="@color"</code> to your input element to both color. </p>
+          <div class="m-b-30">
+            <ui-switch type="checkbox" color="#99d683" switchColor="#f96262" checked></ui-switch>
+            <ui-switch type="checkbox" color="#13dafe" switchColor="#6164c1"></ui-switch>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <div class="white-box">
+      <h3 class="box-title">Input Tags</h3>
+      <p class="text-muted">Add <code>theme='bootstrap'</code> to your <code>tag-input</code> field & its automatically change it to a tags input.</p>
+      <div class="tags-default">
+        <tag-input [(ngModel)]='items' theme='bootstrap' [placeholder] = "'add tags'" [secondaryPlaceholder] = "'add tags'"></tag-input>
+      </div>
+      <h3 class="box-title m-t-30 m-b-0">Select Tags</h3>
+      <p class="text-muted">You can also use tag<code>tag-input-dropdown</code> inside your <code>tag-input</code> field.</p>
+      <tag-input [ngClass]="'tag-select'" theme='bootstrap' [ngModel]="['Alabama']" [addOnBlur]="true" [clearOnBlur]="true" [placeholder] = "'add tags'" [secondaryPlaceholder] = "'add tags'">
+        <tag-input-dropdown [autocompleteItems]="autocompleteItems"></tag-input-dropdown>
+      </tag-input>
+      <h3 class="box-title m-t-30 m-b-0">Input Group Tags</h3>
+      <p class="text-muted">Add <code>theme='bootstrap'</code> to your <code>tag-input</code> field & its automatically change it to a tags input with input-group.</p>
+      <div class="input-group m-b-30"><span class="input-group-addon">Tags</span>
+        <tag-input [(ngModel)]='items1' theme='bootstrap' [placeholder] = "'add tags'" [secondaryPlaceholder] = "'add tags'"></tag-input>
+      </div>
+      <div class="input-group">
+        <tag-input [(ngModel)]='items2' theme='bootstrap' [placeholder] = "'add tags'" [secondaryPlaceholder] = "'add tags'"></tag-input>
+        <span class="input-group-addon">Tags</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.row -->
+<!-- .row -->
+<div class="row">
+  <div class="col-sm-12">
+    <div class="white-box">
+      <h3 class="m-b-0 box-title">Bootstrap TouchSpin</h3>
+      <p class="text-muted m-b-40"> Use the <code> data-plugin="touchSpin" </code> to create a Bootstrap style spinner.</p>
+      <div class="row">
+        <div class="col-md-6">
+          <form class="p-r-20 input-group-form">
+            <div class="form-group">
+              <label class="control-label">Vertical Touchspin</label>
+              <input class="vertical-spin" type="text" data-bts-button-down-class="btn btn-default btn-outline" data-bts-button-up-class="btn btn-default btn-outline" value="" name="vertical-spin"></div>
+            <div class="form-group">
+              <label class="control-label">Postfix</label>
+              <input id="tch1" type="text" value="55" name="tch1" data-bts-button-down-class="btn btn-default btn-outline" data-bts-button-up-class="btn btn-default btn-outline"></div>
+            <div class="form-group m-b-0">
+              <label class="control-label">Prefix</label>
+              <input id="tch2" type="text" value="0" name="tch2" class=" form-control" data-bts-button-down-class="btn btn-default btn-outline" data-bts-button-up-class="btn btn-default btn-outline"></div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <form class="input-group-form">
+            <div class="form-group">
+              <label class="control-label">Init </label>
+              <input id="tch3" type="text" value="" name="tch3" data-bts-button-down-class="btn btn-default btn-outline" data-bts-button-up-class="btn btn-default btn-outline"></div>
+            <div class="form-group">
+              <label class="control-label">Value set 30 </label>
+              <input id="tch3_22" type="text" value="30" name="tch3_22" data-bts-button-down-class="btn btn-default btn-outline" data-bts-button-up-class="btn btn-default btn-outline"></div>
+            <div class="form-group m-b-0">
+              <label class="control-label">Button group</label>
+              <div class="input-group">
+                <input id="tch5" type="text" class="form-control" name="tch5" value="50" data-bts-button-down-class="btn btn-default btn-outline" data-bts-button-up-class="btn btn-default btn-outline">
+                <div class="input-group-btn">
+                  <button type="button" class="btn btn-default btn-outline dropdown-toggle" data-toggle="dropdown"><span class="caret"></span> <span class="sr-only">Toggle Dropdown</span></button>
+                  <ul class="dropdown-menu pull-right" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- /.row -->
+  <!-- .row -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="white-box">
+        <div class="row">
+          <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+            <h3 class="box-title m-b-0">Checkbox Square</h3>
+            <p class="text-muted font-13 m-b-30"> Bootstrap brand colors </p>
+            <div class="checkbox">
+              <input id="checkbox0" type="checkbox">
+              <label for="checkbox0"> Default </label>
+            </div>
+            <div class="checkbox checkbox-custom">
+              <input id="checkbox11" type="checkbox" checked>
+              <label for="checkbox11"> Custom </label>
+            </div>
+            <div class="checkbox checkbox-primary">
+              <input id="checkbox2" type="checkbox" checked>
+              <label for="checkbox2"> Primary </label>
+            </div>
+            <div class="checkbox checkbox-success">
+              <input id="checkbox3" type="checkbox">
+              <label for="checkbox3"> Success </label>
+            </div>
+            <div class="checkbox checkbox-info">
+              <input id="checkbox4" type="checkbox">
+              <label for="checkbox4"> Info </label>
+            </div>
+            <div class="checkbox checkbox-warning">
+              <input id="checkbox5" type="checkbox" checked>
+              <label for="checkbox5"> Warning </label>
+            </div>
+            <div class="checkbox checkbox-danger">
+              <input id="checkbox6" type="checkbox" checked>
+              <label for="checkbox6"> Danger </label>
+            </div>
+            <div class="checkbox checkbox-purple">
+              <input id="checkbox6a" type="checkbox">
+              <label for="checkbox6a"> Purple </label>
+            </div>
+            <div class="checkbox checkbox-inverse">
+              <input id="checkbox6c" type="checkbox">
+              <label for="checkbox6c"> Inverse </label>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+            <h3 class="box-title m-b-0">Checkbox Circle</h3>
+            <p class="text-muted font-13 m-b-30"> Add simple <code>checkbox-circle</code> class </p>
+            <div class="checkbox checkbox-circle">
+              <input id="checkbox7" type="checkbox">
+              <label for="checkbox7"> Simply Rounded </label>
+            </div>
+            <div class="checkbox checkbox-info checkbox-circle">
+              <input id="checkbox8" type="checkbox" checked>
+              <label for="checkbox8"> Info </label>
+            </div>
+            <div class="checkbox checkbox-primary checkbox-circle">
+              <input id="checkbox-9" type="checkbox">
+              <label for="checkbox-9"> Primary </label>
+            </div>
+            <div class="checkbox checkbox-success checkbox-circle">
+              <input id="checkbox-10" type="checkbox" checked>
+              <label for="checkbox-10"> Success </label>
+            </div>
+            <div class="checkbox checkbox-warning checkbox-circle">
+              <input id="checkbox-11" type="checkbox">
+              <label for="checkbox-11"> Warning </label>
+            </div>
+            <div class="checkbox checkbox-danger checkbox-circle">
+              <input id="checkbox-12" type="checkbox" checked>
+              <label for="checkbox-12"> Danger </label>
+            </div>
+            <div class="checkbox checkbox-purple checkbox-circle">
+              <input id="checkbox-13" type="checkbox" checked>
+              <label for="checkbox-13"> Purple </label>
+            </div>
+            <div class="checkbox checkbox-inverse checkbox-circle">
+              <input id="checkbox-15" type="checkbox" checked>
+              <label for="checkbox-15"> Inverse </label>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2 col-xs-12">
+            <h3 class="box-title m-b-0">Checkbox Disable</h3>
+            <p class="text-muted font-13 m-b-30"> Disable state </p>
+            <div class="checkbox">
+              <input id="checkbox9" type="checkbox" disabled>
+              <label for="checkbox9"> Can't check this </label>
+            </div>
+            <div class="checkbox checkbox-warning checkbox-circle">
+              <input id="checkbox110" type="checkbox" disabled checked>
+              <label for="checkbox110"> And this </label>
+            </div>
+            <div class="checkbox checkbox-info">
+              <input id="checkbox12" type="checkbox" disabled checked>
+              <label for="checkbox12"> Can't check this </label>
+            </div>
+            <div class="checkbox checkbox-purple checkbox-circle">
+              <input id="checkbox14" type="checkbox" disabled checked>
+              <label for="checkbox14"> And this </label>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+            <h3 class="box-title m-b-0">Radio Buttons</h3>
+            <p class="text-muted font-13 m-b-30"> With bootstrap colors </p>
+            <div class="radio">
+              <input type="radio" name="radio" id="radio1" value="option1" checked>
+              <label for="radio1"> Default </label>
+            </div>
+            <div class="radio radio-custom">
+              <input type="radio" name="radio" id="radio2" value="option2">
+              <label for="radio2"> Custom </label>
+            </div>
+            <div class="radio radio-primary">
+              <input type="radio" name="radio" id="radio3" value="option3">
+              <label for="radio3"> Primary </label>
+            </div>
+            <div class="radio radio-success">
+              <input type="radio" name="radio" id="radio4" value="option4">
+              <label for="radio4"> Success </label>
+            </div>
+            <div class="radio radio-info">
+              <input type="radio" name="radio" id="radio5" value="option5">
+              <label for="radio5"> Info </label>
+            </div>
+            <div class="radio radio-danger">
+              <input type="radio" name="radio" id="radio6" value="option6">
+              <label for="radio6"> Danger </label>
+            </div>
+            <div class="radio radio-warning">
+              <input type="radio" name="radio" id="radio7" value="option7">
+              <label for="radio7"> Warning </label>
+            </div>
+            <div class="radio radio-purple">
+              <input type="radio" name="radio" id="radio8" value="option8">
+              <label for="radio8"> Purple </label>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+            <h3 class="box-title m-b-0">Radio Clickable</h3>
+            <p class="text-muted font-13 m-b-30"> All buttons clickable </p>
+            <div class="radio">
+              <input type="radio" name="radio1" id="radio11" value="option1" checked>
+              <label for="radio11"> Default </label>
+            </div>
+            <div class="radio radio-custom">
+              <input type="radio" name="radio2" id="radio12" value="option2">
+              <label for="radio12"> Custom </label>
+            </div>
+            <div class="radio radio-primary">
+              <input type="radio" name="radio3" id="radio13" value="option3">
+              <label for="radio13"> Primary </label>
+            </div>
+            <div class="radio radio-success">
+              <input type="radio" name="radio4" id="radio14" value="option4" checked>
+              <label for="radio14"> Success </label>
+            </div>
+            <div class="radio radio-info">
+              <input type="radio" name="radio5" id="radio15" value="option5" checked>
+              <label for="radio15"> Info </label>
+            </div>
+            <div class="radio radio-danger">
+              <input type="radio" name="radio6" id="radio16" value="option6">
+              <label for="radio16"> Danger </label>
+            </div>
+            <div class="radio radio-warning">
+              <input type="radio" name="radio7" id="radio17" value="option7" checked>
+              <label for="radio17"> Warning </label>
+            </div>
+            <div class="radio radio-purple">
+              <input type="radio" name="radio8" id="radio18" value="option8">
+              <label for="radio18"> Purple </label>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+            <h3 class="box-title m-b-0">Radio Disable</h3>
+            <p class="text-muted font-13 m-b-30"> Disable state </p>
+            <div class="radio">
+              <input type="radio" name="radio21" id="radio21" value="option1" disabled checked>
+              <label for="radio21"> Default </label>
+            </div>
+            <div class="radio radio-custom">
+              <input type="radio" name="radio22" disabled id="radio22" value="option2">
+              <label for="radio22"> Custom </label>
+            </div>
+            <div class="radio radio-primary">
+              <input type="radio" name="radio23" disabled id="radio23" value="option3">
+              <label for="radio23"> Primary </label>
+            </div>
+            <div class="radio radio-success">
+              <input type="radio" name="radio24" disabled id="radio24" value="option4" checked>
+              <label for="radio24"> Success </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->

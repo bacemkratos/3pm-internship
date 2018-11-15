@@ -1,0 +1,303 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="ProjectManagementForm">
+            <div class="panel panel-info"><!-- Project Input-->
+              <div class="panel-heading  center-block center-align">
+                <a id='12'data-toggle="collapse" href="#collapse1" >PROJECT MANAGEMENT</a>
+              </div>
+              <div  id="collapse1" class="panel-collapse collapse in" >
+              <div class="form-row  "  ><!-- START ROW 1 -->
+                <div class="panel-body">
+                  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4  ">
+                    <label for="projectName" class="required ">Project Name</label>
+                    <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-product-hunt"></i></div>
+                      <input  type="text" class="form-control" id="projectName" [value]="projectName" placeholder="Enter project name" disabled>
+                    </div>
+
+                  </div>
+                  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 ">
+                    <label for="projectCode">Project Code</label>
+                    <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-hashtag"></i></div>
+                      <input  type="text" class="form-control" id="projectCode" [value]="projectCode"  disabled>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                    <label for="accManager" class="required ">Project Manager</label>
+                    <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <select  class="form-control" id="accManager" formControlName="pmoProjectManager">
+                        <option *ngFor="let p of projectManagers" [ngValue]="p.username">{{p.username}}</option>
+                      </select>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <hr style="size: 2em ;"/>
+
+              <div class="form-row"><!-- START ROW 2 -->
+                <div class="panel-body">
+                  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                    <label for="pmoProjectCostInit" class="required ">Initial PMO Project Costs </label>
+                    <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-euro"></i></div>
+                      <input formControlName="pmoProjectCostInit"  type="text" class=" form-control" id="pmoProjectCostInit" placeholder="Enter Initial PMO Project Costs">
+                    </div>
+                    <span class="help-block" style="color: #e74a25" *ngIf="ProjectManagementForm.controls['pmoProjectCostInit'].hasError('pattern')"> Must be a number with a minimum 3 digits </span>
+                    <label for="pmoProjectManDaytInit" class="required ">Initial PMO man day affectation </label>
+                    <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-euro"></i></div>
+                      <input formControlName="pmoProjectManDaytInit"  type="text" class="form-control" id="pmoProjectManDaytInit" placeholder="Enter Initial PMO man day affectation">
+                    </div>
+                    <span class="help-block" style="color: #e74a25" *ngIf="ProjectManagementForm.controls['pmoProjectManDaytInit'].hasError('pattern')"> Must be a number with a minimum 3 digits </span>
+                  </div>
+                  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                    <label for="pmoProjectProfit" class="required ">Initial PMO Target profitability</label>
+                    <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-percent"></i></div>
+                      <input formControlName="pmoProjectProfit"  type="text" class="form-control" id="pmoProjectProfit" placeholder="Enter Initial PMO Target profitability">
+                    </div>
+                    <span class="help-block" style="color: #e74a25" *ngIf="ProjectManagementForm.controls['pmoProjectProfit'].hasError('pattern')">Number (%) de 0 à 100 </span>
+                  </div>
+                  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                    <label for="pmoProjecthreshold" class="required ">Initial PMOThreshold profitability </label>
+                    <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-percent"></i></div>
+                      <input formControlName="pmoProjecthreshold"  type="text" class="form-control" id="pmoProjecthreshold" placeholder="Enter Initial PMOThreshold profitability ">
+                    </div>
+                    <span class="help-block" style="color: #e74a25" *ngIf="ProjectManagementForm.controls['pmoProjecthreshold'].hasError('pattern')"> Number (%) de 0 à 100 </span>
+                  </div>
+                </div>
+                 </div>
+              <hr style="size: 2em ;"/>
+
+              <div class="form-row"><!-- START ROW 3 -->
+                <div class="panel-body">
+                  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                    <label for="pmoProjectCostA" class="required ">Approved PMO Project Costs </label>
+                    <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-euro"></i></div>
+                      <input formControlName="pmoProjectCostA"  type="text" class="form-control" id="pmoProjectCostA" placeholder="Enter Approved PMO Project Costs">
+                    </div>
+                    <span class="help-block" style="color: #e74a25" *ngIf="ProjectManagementForm.controls['pmoProjectCostA'].hasError('pattern')"> Must be a number with a minimum 3 digits </span>
+                    <label for="pmoProjectManDaytA" class="required ">Approved PMO man day affectation </label>
+                    <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-euro"></i></div>
+                      <input formControlName="pmoProjectManDaytA"  type="text" class="form-control" id="pmoProjectManDaytA" placeholder="Enter Approved PMO man day affectation">
+                    </div>
+                    <span class="help-block" style="color: #e74a25" *ngIf="ProjectManagementForm.controls['pmoProjectManDaytA'].hasError('pattern')"> Must be a number with a minimum 3 digits </span>
+                  </div>
+                  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                    <label for="pmoProjectProfitA" class="required ">Approved PMO Target profitability</label>
+                    <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-percent"></i></div>
+                      <input formControlName="pmoProjectProfitA"  type="text" class="form-control" id="pmoProjectProfitA" placeholder="Enter Approved PMO Target profitability">
+                    </div>
+                    <span class="help-block" style="color: #e74a25" *ngIf="ProjectManagementForm.controls['pmoProjectProfitA'].hasError('pattern')"> Number (%) de 0 à 100</span>
+                  </div>
+                  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                    <label for="pmoProjecthresholdA" class="required ">Approved PMO Threshold profitability</label>
+                    <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-percent"></i></div>
+                      <input formControlName="pmoProjecthresholdA"  type="text" class="form-control" id="pmoProjecthresholdA" placeholder="Enter Approved PMO Threshold profitability ">
+                    </div>
+                    <span class="help-block" style="color: #e74a25" *ngIf="ProjectManagementForm.controls['pmoProjecthresholdA'].hasError('pattern')"> Number (%) de 0 à 100 </span>
+                  </div>
+                </div>
+              </div>
+              <hr style="size: 300px ;"/>
+              <div class="form-row"><!-- START ROW 4 -->
+                <div class="panel-body">
+                  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                    <label for class="required ">Estimated Planning </label>
+                      <input id="pmoEstimatedPlaning"  disabled type="file"   ng2FileSelect [uploader]="uploader" class="">
+                  </div>
+                  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                    <label for="esdate" class="required">Estimated Start Date </label>
+                    <div  id="esdate" class="input-group md-date-pic ">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                      <input disabled id="pmoEstimatedStartDate"  type="text"  [value]="estimatedStartDate" placeholder="Select a date" name="date" class="form-control" bsDatepicker>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                    <label for="eedate" class="required">Estimated End Date </label>
+                    <div  id="eedate" class="input-group md-date-pic ">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                      <input  disabled id="pmoEstimatedEndDate" type="text" [value]="estimatedEndDate"  placeholder="Select a date" name="date" class="form-control" bsDatepicker>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+                <div class="row">
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-4"></div>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <button class="btn btn-md   disabled" [ngClass]="{'btn-primary': ProjectManagementForm.valid ,'btn-danger': !ProjectManagementForm.valid, 'disabled':!ProjectManagementForm.valid}"
+                    (click)="submitProjectManagementForm()"        type="submit" > Save / Update </button>
+
+                  </div>
+
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 container">
+                  <div class="alert alert-danger" *ngIf="!ProjectManagementForm.valid && ProjectManagementForm.touched">
+                    Fill all the required Fields Before Submitting
+                  </div>
+
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div><!-- END PANEL 1-->
+    </form>
+
+         <form [formGroup]="projectObjectivesForm">
+            <div  class="panel panel-info"><!-- panel2 -->
+              <div class="panel-heading  center-block center-align">
+                <!--<span class="notActive" *ngIf="!ProjectManagementForm.valid" >PROJECT OBJECTIVES, SCOPE AND DELIVERABLES</span>-->
+                <a   data-toggle="collapse" href="#collapse2"  >PROJECT OBJECTIVES, SCOPE AND DELIVERABLES</a>
+              </div>
+              <div   id="collapse2" class="panel-collapse collapse" >
+
+                <div class="form-row  "  ><!-- START ROW 1 -->
+                  <div class="panel-body">
+
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                      <label for="projecSummaryObjectives" class="col-md-12 required ">Summary objective</label>
+                        <textarea id="projecSummaryObjectives" formControlName="projecSummaryObjectives" class="form-control bl-primary  " rows="2" placeholder="Describe the project objective at a summary level, clearly and concisely"></textarea>
+                      <button class="btn btn-md   disabled" [ngClass]="{'btn-primary': projectObjectivesForm.controls['projecSummaryObjectives'].valid ,'btn-danger': !projectObjectivesForm.controls['projecSummaryObjectives'].valid, 'disabled':!projectObjectivesForm.controls['projecSummaryObjectives'].valid}"
+                              (click)="saveOrUpdateProjectSummary()"        type="button" > Save / Update</button>
+                    </div>
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                      <label class="col-md-12 required " for="projecScope" >Project scope</label>
+                      <textarea  id="projecScope" formControlName="projecScope"  class="form-control bl-primary  " rows="20" placeholder="Describe what is in and out of scope for the project
+
+
+In Scope :
+•
+•
+•
+
+
+
+Out of scope:
+•
+•
+•
+"></textarea>
+                      <button class="btn btn-md   disabled" [ngClass]="{'btn-primary': projectObjectivesForm.controls['projecScope'].valid ,'btn-danger': !projectObjectivesForm.controls['projecScope'].valid, 'disabled':!projectObjectivesForm.controls['projecScope'].valid}"
+                              (click)="saveOrUpdateScope()"        type="button" > Save / Update</button>
+                    </div>
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 ">
+                    </div>
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                      <label class="col-md-12  required">Project objectives and deliverables</label>
+                      <app-project-objectives   ></app-project-objectives>
+                    </div>
+                    <div class="alert alert-danger col-md-12 col-lg-12 col-sm-12 col-xs-12" *ngIf="!projectObjectivesForm.valid && projectObjectivesForm.touched">
+                      Fill all te required Fields Before Continuing
+                    </div>
+
+                  </div>
+                </div>
+                <hr style="size: 2em ;"/>
+
+              </div>
+            </div><!-- END PANEL 2-->
+         </form>
+
+         <form [formGroup]="projectAssumptionForm">
+            <div  class="panel panel-info"><!-- panel3 -->
+              <div class="panel-heading  center-block center-align">
+                <!--<span  class="notActive" *ngIf="!projectObjectivesForm.valid" >PROJECT Assumptions and Constraints</span>-->
+
+                <a data-toggle="collapse" href="#collapse3"  >PROJECT Assumptions and Constraints</a>
+              </div>
+              <div  id="collapse3" class="panel-collapse collapse" >
+
+                <div class="form-row  "  ><!-- START ROW 1 -->
+                  <div class="panel-body">
+
+                    <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                      <label for="keyAssumption" class="col-md-12  ">Key assumptions</label>
+                      <textarea id="keyAssumption" formControlName="keyAssumption" class="form-control bl-primary  " rows="8" placeholder="Describe key assumptions with regard the implementation of this project (e.g. approach/ resource availability/ 3rd party/ version)"></textarea>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                      <label for="keyConstraint" class="col-md-12  ">Key constraints</label>
+                      <textarea  id="keyConstraint" formControlName="keyConstraint" class="form-control bl-primary  " rows="8" placeholder="Describe key constraints, e.g. time/ cost/ terms and conditions"></textarea>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+
+                    <button class="btn btn-md   disabled" [ngClass]="{'btn-primary': projectAssumptionForm.valid ,'btn-danger': !projectAssumptionForm.valid, 'disabled':!projectAssumptionForm.valid}"
+                            (click)="saveOrUpdateAssumConstraint()"        type="submit" > Save / Update</button>
+                    </div>
+                    <div class="alert alert-danger col-md-12 col-lg-12 col-sm-12 col-xs-12" *ngIf="!projectAssumptionForm.valid && projectAssumptionForm.touched">
+                      Fill all te required Fields Before Continuing
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div><!-- END PANEL 3-->
+
+         </form>
+
+            <div  class="panel panel-info"><!-- panel4 -->
+              <div class="panel-heading  center-block center-align">
+                <!--<span class="notActive" *ngIf="!projectAssumptionForm.valid"  >PROJECT Risks/Opportunities/dependencies</span>-->
+                <a  data-toggle="collapse" href="#collapse4"  >PROJECT Risks/Opportunities/dependencies</a>
+              </div>
+              <div   id="collapse4" class="panel-collapse collapse" >
+
+                <div class="form-row  "  ><!-- START ROW 1 -->
+                  <div class="panel-body">
+
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                      <label class="col-md-12 required ">PROJECT Risks/Opportunities/dependencies</label>
+                      <app-project-risks ></app-project-risks>
+                    </div>
+                    <div class="alert alert-danger col-md-12 col-lg-12 col-sm-12 col-xs-12" *ngIf="!projectRisksTable.valid && projectRisksTable.touched">
+                      Fill all te required Fields Before Continuing
+                    </div>
+
+
+                  </div>
+                </div>
+
+
+              </div>
+            </div><!-- END PANEL 4-->
+
+    <div  class="panel panel-info" ><!-- panel5 -->
+      <div class="panel-heading  center-block center-align">
+        <!--<span class="notActive" *ngIf="!projectAssumptionForm.valid ">PROJECT ORGANIZATION</span>-->
+        <a data-toggle="collapse" href="#collapse5"  >PROJECT ORGANIZATION</a>
+      </div>
+      <div  id="collapse5" class="panel-collapse collapse" >
+
+        <div class="form-row  "  ><!-- START ROW 1 -->
+          <div class="panel-body">
+
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+              <label class="col-md-12 required ">PROJECT ORGANIZATION</label>
+                    <app-project-organization></app-project-organization>
+            </div>
+            <div class="alert alert-danger col-md-12 col-lg-12 col-sm-12 col-xs-12" *ngIf="!projectOrgTable.valid && projectOrgTable.touched">
+              Fill all te required Fields Before Continuing
+            </div>
+
+
+          </div>
+        </div>
+
+
+      </div>
+    </div><!-- END PANEL 5-->
+
+
+  </div>
+</div>

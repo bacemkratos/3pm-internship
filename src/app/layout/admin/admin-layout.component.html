@@ -1,0 +1,335 @@
+<div (window:resize)="onResize($event)" id="theme-config" class="{{ menuType }} {{ headerType }} {{ sidebarType }} {{ themeType}}">
+  <div id="wrapper">
+    <nav class="navbar navbar-default navbar-static-top m-b-0">
+      <div class="navbar-header">
+        <a class="navbar-toggle font-20 hidden-sm hidden-md hidden-lg waves-effect waves-light" id="mobile-collapse" [exclude]="'#main_navbar'" (clickOutside)="onClickedOutside($event)" (click)="onToggled()" href="javascript:" data-toggle="collapse" data-target=".navbar-collapse">
+          <i class="{{ toggledArrow }}"></i>
+        </a>
+        <div class="top-left-part" style="background-color: #00bcd9">
+          <a class="logo" [routerLink]="['/']">
+            <b><img src="assets/images/logo-fondclair.png" alt="home"/></b>
+          </a>
+        </div>
+        <ul class="nav navbar-top-links navbar-left hidden-xs">
+          <li>
+            <a href="javascript:" class="sidebartoggler font-20 waves-effect waves-light" (click)="onToggled()">
+              <i class="{{ toggledArrow }}"></i>
+            </a>
+          </li>
+          <li>
+            <form role="search" class="app-search hidden-xs">
+              <i class="icon-magnifier"></i>
+              <input placeholder="Search..." class="form-control">
+            </form>
+          </li>
+        </ul>
+        <ul class="nav navbar-top-links navbar-right pull-right">
+          <li class="notifications dropdown">
+            <a class="dropdown-toggle waves-effect waves-light font-20" data-toggle="dropdown" href="javascript:">
+              <i class="icon-speech"></i>
+              <span *ngIf="notifications.length">
+              <span class="badge badge-xs badge-danger">{{ notifications.length }}</span>
+              </span>
+            </a>
+            <ul class="dropdown-menu mailbox animated bounceInDown" (clickOutside)="readNotifications()">
+              <li>
+                <div class="drop-title">You have {{ notifications.length }} new notifications</div>
+              </li>
+              <li>
+                <div class="message-center" *ngFor="let notification of notifications">
+                  <a href="javascript:">
+                    <div class="user-img">
+                      <i class="fa fa-product-hunt fa-3x"></i>
+                    </div>
+                    <div class="mail-contnet">
+                      <h5>{{ notification.title }}</h5>
+                      <span class="mail-desc">{{ notification.message }}</span>
+                      <span class="time">{{ notification.date }}</span>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <a class="text-center" href="javascript:" [routerLink]="['/notifications']">
+                  <strong>See all notifications</strong>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle waves-effect waves-light font-20" data-toggle="dropdown" href="javascript:">
+              <i class="icon-calender"></i>
+              <span class="badge badge-xs badge-danger">3</span>
+            </a>
+            <ul class="dropdown-menu dropdown-tasks animated slideInUp">
+              <li>
+                <a href="javascript:">
+                  <div>
+                    <p>
+                      <strong>Project X65</strong>
+                      <span class="pull-right text-muted">40% Complete</span>
+                    </p>
+                    <div class="progress progress-striped active">
+                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                        <span class="sr-only">40% Complete </span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="javascript:">
+                  <div>
+                    <p>
+                      <strong>Project w520</strong>
+                      <span class="pull-right text-muted">20% Complete</span>
+                    </p>
+                    <div class="progress progress-striped active">
+                      <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                        <span class="sr-only">20% Complete</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="javascript:">
+                  <div>
+                    <p>
+                      <strong>Project XY50</strong>
+                      <span class="pull-right text-muted">60% Complete</span>
+                    </p>
+                    <div class="progress progress-striped active">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                        <span class="sr-only">60% Complete (warning)</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="javascript:">
+                  <div>
+                    <p>
+                      <strong>Project WA263</strong>
+                      <span class="pull-right text-muted">80% Complete</span>
+                    </p>
+                    <div class="progress progress-striped active">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                        <span class="sr-only">80% Complete (danger)</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a class="text-center" href="javascript:">
+                  <strong>See All Projects</strong>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!--<li class="right-side-toggle">-->
+            <!--<a class="right-side-toggler waves-effect waves-light b-r-0 font-20" href="javascript:" (click)="toggleSetting()">-->
+              <!--<i class="icon-settings"></i>-->
+            <!--</a>-->
+          <!--</li>-->
+        </ul>
+      </div>
+    </nav>
+
+      <aside id="main_navbar" class="sidebar" role="navigation" (clickOutside)="onClickedOutside($event)" [exclude]="'#mobile-collapse'">
+      <div class="scroll-sidebar" slimScroll width="auto" [height]="windowHeight+'px'" size="5px" color="#dcdcdc" opacity="0.4" allowPageScroll="false">
+        <div class="user-profile">
+          <div class="dropdown user-pro-body">
+            <div class="profile-image">
+              <img src="assets/images/users/3.jpg" alt="user-img" class="img-circle">
+              <a href="javascript:" class="dropdown-toggle u-dropdown text-blue" data-toggle="dropdown" aria-expanded="false">
+                <span class="badge badge-success">
+                    <i class="fa fa-angle-down"></i>
+                </span>
+              </a>
+              <ul class="dropdown-menu animated flipInY">
+                <li><a href="javascript:"><i class="fa fa-user"></i> Profile</a></li>
+                <li><a href="javascript:"><i class="fa fa-inbox"></i> Inbox</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a routerLink="/account" href="javascript:"><i class="fa fa-cog"></i> Account Settings</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a (click)="logout()"  href="javascript:"><i class="fa fa-power-off"></i> Logout</a></li>
+              </ul>
+            </div>
+            <p class="profile-text m-t-15 font-16"><a href="javascript:"> {{user.username}}</a></p>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="main-menu" appAccordion>
+            <div *ngFor="let asideItems of menuItems.getAll(); let i_main = index;">
+              <ul id="side-menu" *ngFor="let asideItem of asideItems.main; let i_sub = index;" appAccordionLink group="{{asideItem.state}}">
+                <!-- external link -->
+                <li [routerLinkActive]="['active']" *ngIf="asideItem.type === 'external'" appAccordionLink group="{{asideItem.state}}">
+                  <a appAccordionLink class="waves-effect" href="{{asideItem.external}}" target="{{asideItem.target ? '_blank' : '_self'}}" appAccordionToggle>
+                    <i class="{{ asideItem.icon }} fa-fw"></i>
+                    <span class="hide-menu">{{ asideItem.name }}
+                      <span *ngFor="let asideBadge of asideItem.badge" class="label label-rounded label-{{ asideBadge.type }} pull-right">{{asideBadge.value}}</span>
+                    </span>
+                  </a>
+                </li>
+                <!-- direct link -->
+                <li [routerLinkActive]="['active']" *ngIf="asideItem.type === 'link'" appAccordionLink group="{{asideItem.state}}">
+                  <a appAccordionLink class="waves-effect" [routerLink]="['/', asideItem.main_state, asideItem.state]" target="{{asideItem.target ? '_blank' : '_self'}}" appAccordionToggle *ngIf="asideItem.main_state; else mainContent">
+                    <i class="{{ asideItem.icon }} fa-fw"></i>
+                    <span class="hide-menu">{{ asideItem.name }}
+                      <span *ngFor="let asideBadge of asideItem.badge" class="label label-rounded label-{{ asideBadge.type }} pull-right">{{asideBadge.value}}</span>
+                    </span>
+                  </a>
+                  <ng-template #mainContent>
+                    <a appAccordionLink class="waves-effect" [routerLink]="['/', asideItem.state]" target="{{asideItem.target ? '_blank' : '_self'}}" appAccordionToggle>
+                      <i class="{{ asideItem.icon }} fa-fw"></i>
+                      <span class="hide-menu">{{ asideItem.name }}
+                        <span *ngFor="let asideBadge of asideItem.badge" class="label label-rounded label-{{ asideBadge.type }} pull-right">{{asideBadge.value}}</span>
+                      </span>
+                    </a>
+                  </ng-template>
+                </li>
+                <!-- level menu -->
+                <li [routerLinkActive]="['active']" *ngIf="asideItem.type === 'sub'" appAccordionLink group="{{asideItem.state}}">
+                  <a appAccordionLink class="waves-effect" [routerLinkActive]="['active']" href="javascript:" appAccordionToggle (click)="select(i_main+''+i_sub)">
+                    <i class="{{ asideItem.icon }} fa-fw"></i>
+                    <span class="hide-menu">{{ asideItem.name }}
+                      <span *ngFor="let asideBadge of asideItem.badge" class="label label-rounded label-{{ asideBadge.type }} pull-right">{{asideBadge.value}}</span>
+                    </span>
+                  </a>
+                  <ul [@toggledMenu]="[selected === i_main+''+i_sub ? 'in' : 'out']" class="collapse" [ngClass]="[selected === i_main+''+i_sub ? 'in' : 'out']">
+                    <ng-template ngFor let-asideChildren [ngForOf]="asideItem.children">
+                      <li [routerLinkActive]="['active']" *ngIf="asideChildren.type !== 'sub'">
+                        <a appAccordionLink class="waves-effect" [routerLink]="['/', asideItem.state, asideChildren.state]" target="{{asideChildren.target ? '_blank' : '_self'}}">
+                          {{ asideChildren.name }}
+                          <span *ngFor="let asideChildrenBadge of asideChildren.badge" class="label label-rounded label-{{ asideChildrenBadge.type }} pull-right">{{asideChildrenBadge.value}}</span>
+                        </a>
+                      </li>
+
+                      <li [routerLinkActive]="['active']" *ngIf="asideChildren.type === 'sub'" appAccordionLink group="sub-toggled">
+                        <a appAccordionLink class="waves-effect" href="javascript:" appAccordionToggle (click)="selectSub(i_main+''+i_sub+''+asideChildren.state, i_main+''+i_sub)">
+                          <i class="{{ asideChildren.icon }}"></i>
+                          {{ asideChildren.name }}
+                          <span *ngFor="let asideChildrenBadge of asideChildren.badge" class="label label-rounded label-{{ asideChildrenBadge.type }}">{{asideChildrenBadge.value}}</span>
+                        </a>
+                        <ul [@toggledSubMenu]="[selectedSub === i_main+''+i_sub+''+asideChildren.state ? 'on' : 'off']" class="collapse" [ngClass]="[selectedSub === i_main+''+i_sub+''+asideChildren.state ? 'on' : 'off']">
+                          <ng-template ngFor let-asideChildrenSub [ngForOf]="asideChildren.children">
+                            <li [routerLinkActive]="['active']">
+                              <a appAccordionLink class="waves-effect" [routerLink]="['/', asideItem.state, asideChildren.state, asideChildrenSub.state]" target="{{asideChildrenSub.target ? '_blank' : '_self'}}">
+                                {{ asideChildrenSub.name }}
+                                <span *ngFor="let asideChildrenSubBadge of asideChildrenSub.badge" class="label label-rounded label-{{ asideChildrenSubBadge.type }} pull-right">{{asideChildrenSubBadge.value}}</span>
+                              </a>
+                            </li>
+                          </ng-template>
+                        </ul>
+                      </li>
+                    </ng-template>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!--<div class="p-20 p-t-10">-->
+          <!--<span class="hide-menu">-->
+            <!--<a href="javascript:" target="_blank" class="btn btn-success">Buy Cubic Admin</a>-->
+            <!--<a href="javascript:" target="_blank" class="btn btn-default m-t-15">Check Documentation</a>-->
+          <!--</span>-->
+        <!--</div>-->
+      </div>
+    </aside>
+    <div class="page-wrapper" [style.min-height.px]="windowHeight">
+      <div class="container-fluid">
+            <app-title></app-title>
+            <router-outlet>
+              <app-spinner></app-spinner>
+            </router-outlet>
+        <!-- ===== Right-Sidebar ===== -->
+        <div [@slideInOut]="settingToggle" class="right-sidebar {{ settingToggle }}">
+          <div class="slimscrollright" slimScroll width="auto" [height]="windowHeight+60+'px'" size="5px" color="#dcdcdc" opacity="0.4" allowPageScroll="false">
+            <div class="rpanel-title"> Service Panel <span (click)="toggleSetting()"><i class="icon-close right-side-toggler"></i></span></div>
+            <div class="r-panel-body">
+              <ul class="hidden-xs">
+                <li><b>Layout Options</b></li>
+                <li>
+                  <div class="checkbox checkbox-danger">
+                    <input id="headcheck" type="checkbox" class="fxhdr" (change)="changeHeader()">
+                    <label for="headcheck"> Fix Header </label>
+                  </div>
+                </li>
+                <li>
+                  <div class="checkbox checkbox-warning">
+                    <input id="sidecheck" type="checkbox" class="fxsdr" (change)="changeSidebar()">
+                    <label for="sidecheck"> Fix Sidebar </label>
+                  </div>
+                </li>
+              </ul>
+              <ul id="themecolors" class="m-t-20">
+                <li><b>With Light sidebar</b></li>
+                <li (click)="changeThemeType('default')"><a href="javascript:" data-theme="default" class="default-theme" [ngClass]="{'working': themeType === 'default'}">1</a></li>
+                <li (click)="changeThemeType('green')"><a href="javascript:" data-theme="green" class="green-theme" [ngClass]="{'working': themeType === 'green'}">2</a></li>
+                <li (click)="changeThemeType('yellow')"><a href="javascript:" data-theme="yellow" class="yellow-theme" [ngClass]="{'working': themeType === 'yellow'}">3</a></li>
+                <li (click)="changeThemeType('red')"><a href="javascript:" data-theme="red" class="red-theme" [ngClass]="{'working': themeType === 'red'}">4</a></li>
+                <li (click)="changeThemeType('purple')"><a href="javascript:" data-theme="purple" class="purple-theme" [ngClass]="{'working': themeType === 'purple'}">5</a></li>
+                <li (click)="changeThemeType('black')"><a href="javascript:" data-theme="black" class="black-theme" [ngClass]="{'working': themeType === 'black'}">6</a></li>
+                <li class="db"><b>With Dark sidebar</b></li>
+                <li (click)="changeThemeType('default-dark')"><a href="javascript:" data-theme="default-dark" class="default-dark-theme" [ngClass]="{'working': themeType === 'default-dark'}">7</a></li>
+                <li (click)="changeThemeType('green-dark')"><a href="javascript:" data-theme="green-dark" class="green-dark-theme" [ngClass]="{'working': themeType === 'green-dark'}">8</a></li>
+                <li (click)="changeThemeType('yellow-dark')"><a href="javascript:" data-theme="yellow-dark" class="yellow-dark-theme" [ngClass]="{'working': themeType === 'yellow-dark'}">9</a></li>
+                <li (click)="changeThemeType('red-dark')"><a href="javascript:" data-theme="red-dark" class="red-dark-theme" [ngClass]="{'working': themeType === 'red-dark'}">10</a></li>
+                <li (click)="changeThemeType('purple-dark')"><a href="javascript:" data-theme="purple-dark" class="purple-dark-theme" [ngClass]="{'working': themeType === 'purple-dark'}">11</a></li>
+                <li (click)="changeThemeType('black-dark')"><a href="javascript:" data-theme="black-dark" class="black-dark-theme" [ngClass]="{'working': themeType === 'black-dark'}">12</a></li>
+              </ul>
+              <ul class="m-t-20 chatonline">
+                <li><b>Chat option</b></li>
+                <li>
+                  <a href="javascript:"><img src="assets/images/users/1.jpg" alt="user-img"
+                                                    class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
+                </li>
+                <li>
+                  <a href="javascript:"><img src="assets/images/users/2.jpg" alt="user-img"
+                                                    class="img-circle"> <span>Genelia Deshmukh <small
+                    class="text-warning">Away</small></span></a>
+                </li>
+                <li>
+                  <a href="javascript:"><img src="assets/images/users/3.jpg" alt="user-img"
+                                                    class="img-circle"> <span>Ritesh Deshmukh <small
+                    class="text-danger">Busy</small></span></a>
+                </li>
+                <li>
+                  <a href="javascript:"><img src="assets/images/users/4.jpg" alt="user-img"
+                                                    class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
+                </li>
+                <li>
+                  <a href="javascript:"><img src="assets/images/users/5.jpg" alt="user-img"
+                                                    class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
+                </li>
+                <li>
+                  <a href="javascript:"><img src="assets/images/users/6.jpg" alt="user-img"
+                                                    class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- ===== Right-Sidebar-End ===== -->
+      </div>
+      <!-- /.container-fluid -->
+      <footer class="footer t-a-c"> © 2018 Proxym Group</footer>
+    </div>
+    <!-- /#page-wrapper -->
+  </div>
+  <!-- /#wrapper -->
+</div>
+<!-- /#theme-config -->
+
+

@@ -1,0 +1,265 @@
+<form [formGroup]="presalesInputsForm">
+
+  <div class="panel panel-info"><!-- Project Input-->
+    <div class="panel-heading"> <a data-toggle="collapse" href="#collapseMain">PROJECT input</a></div>
+    <div id="collapseMain" class="panel-collapse collapse in">
+      <div class="form-row"><!-- START ROW 1 -->
+        <div class="panel-body">
+          <div class="col-md-4">
+            <label for="projectName" class="required">Project Name</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-product-hunt"></i></div>
+              <input formControlName="projectName" type="text" class="form-control md-date-pic" id="projectName" placeholder="Enter project name">
+            </div>
+            <span class="help-block" style="color: #e74a25" *ngIf="presalesInputsForm.controls['projectName'].hasError('minlength')"> Must have at least 3 characters. </span>
+            <!--<div class="alert alert-danger" *ngIf="!presalesInputsForm.controls['projectName'].valid && presalesInputsForm.controls['projectName'].touched" role="alert">dis required</div>-->
+          </div>
+          <div class="col-md-4">
+            <label for="projectCode">Project Code</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-hashtag"></i></div>
+              <input type="text" class="form-control md-date-pic" id="projectCode" formControlName="projectCode" disabled>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label class="required">Account Manager</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-user"></i></div>
+              <select class="form-control md-date-pic" formControlName="AccountManager" #sel>
+                <option disabled  selected>Choose</option>
+                <option *ngFor="let option of accManagers" [ngValue]="option.username">{{option.username}}</option>
+              </select>
+            </div>
+
+            <span class="help-block" style="color: #e74a25" *ngIf="presalesInputsForm.controls['AccountManager'].touched && !presalesInputsForm.controls['AccountManager'].valid"> Please choose an option. </span>
+          </div>
+        </div>
+      </div><!-- END ROW 1 -->
+
+      <div class="form-row"><!-- START ROW 2 -->
+        <div class="panel-body">
+          <div class="col-md-4">
+            <label for="endCustomer" class="required">End Customer</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-user"></i></div>
+              <input formControlName="endCustomer" type="text" class="md-date-pic form-control" id="endCustomer" placeholder="Enter end customer">
+            </div>
+            <span class="help-block" style="color: #e74a25" *ngIf="presalesInputsForm.controls['endCustomer'].hasError('minlength') "> Must have at least 3 characters. </span>
+            <!--<div class="alert alert-danger" *ngIf="!presalesInputsForm.controls['projectName'].valid && presalesInputsForm.controls['projectName'].touched" role="alert">dis required</div>-->
+            <label for="intermediateCustomer">Intermediate Customer</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-user"></i></div>
+              <input formControlName="intermediateCustomer" type="text" class=" md-date-pic form-control" id="intermediateCustomer" placeholder="Enter intermediate customer">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="projectSaleValue" class="required">Project Sale Value</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-euro"></i></div>
+              <input formControlName="projectSaleValue" type="text" step="any" min="0" class="md-date-pic form-control" id="projectSaleValue" placeholder="Enter project sale value">
+            </div>
+            <span class="help-block" style="color: #e74a25" *ngIf="presalesInputsForm.controls['projectSaleValue'].hasError('pattern') "> Must be a numeric value. </span>
+          </div>
+          <div class="col-md-4">
+            <label for="projectQuotation" class="required">Project Quotation</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-upload"></i></div>
+              <input formControlName="projectQuotation" (change)="fileChange($event, 'ProjectQuotation')" type="file" class="md-date-pic form-control" id="projectQuotation" placeholder="Enter project quotation">
+            </div>
+            <!--<span class="help-block" style="color: #e74a25" *ngIf="presalesInputsForm.controls['projectSaleValue'].hasError('pattern') "> Must be a numeric value. </span>-->
+          </div>
+        </div>
+      </div> <!-- END ROW 2-->
+      <div class="form-row"><!-- START ROW 3 -->
+        <div class="panel-body">
+          <div class="col-md-4">
+            <label for="contractualPlanning" class="required">Contractual Planning</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-upload"></i></div>
+              <input formControlName="contractualPlanning" type="file" (change)="fileChange($event, 'ContractualPlanning')" id="contractualPlanning" class="md-date-pic form-control">
+            </div>
+          </div>
+          <div class="col-md-4" >
+            <label class="required">Contractual Start Date</label>
+            <div class="input-group md-date-pic">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              <input type="text" [maxDate]="getMinDate(presalesInputsForm.controls['contractualEndDate'].value)" formControlName="contractualStartDate" placeholder="Select a date" class="md-date-pic form-control" bsDatepicker>
+            </div>
+
+          </div>
+          <div class="col-md-4">
+            <label class="required">Contractual End Date</label>
+            <div class="input-group md-date-pic">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              <input [minDate]="getMinDate(presalesInputsForm.controls['contractualStartDate'].value)" type="text"  formControlName="contractualEndDate" placeholder="Select a date" class="md-date-pic form-control" bsDatepicker>
+            </div>
+          </div>
+        </div>
+      </div> <!-- END ROW 3-->
+      <div class="form-row"><!-- START ROW 4 -->
+        <div class="panel-body">
+          <div class="col-md-4">
+            <label>Business Value</label>
+            <select class="form-control md-date-pic" formControlName="businessValueType">
+              <option disabled selected>Choose</option>
+              <option *ngFor="let option of businessValues" [ngValue]="option">{{option}}</option>
+            </select>
+            <textarea placeholder="Description" class="form-control md-date-pic" formControlName="businessValueDescription"></textarea>
+          </div>
+          <div class="col-md-4">
+            <label for="recommendedMethodology">Recommended methodology</label>
+            <input formControlName="recommendedMethodology" type="text" class="md-date-pic form-control" id="recommendedMethodology" placeholder="Enter Recommended Methodology">
+          </div>
+          <div class="col-md-4">
+            <label>Related Projects</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-product-hunt"></i></div>
+              <select class="form-control md-date-pic" formControlName="relatedProject" (change)="selectChangeRelatedProjects($event.target.value)">
+                <!--<select class="form-control md-date-pic" formControlName="relatedProject" (change)="selectedRelatedProjects.push(json.parse($event.target.value));">-->
+                <option disabled  selected>Choose</option>
+                <option *ngFor="let option of relatedProjects" [value]="json.stringify({id: option.id, projectName: option.projectName})">{{option.projectName}}</option>
+              </select>
+            </div>
+            <span *ngFor="let project of selectedRelatedProjects; let i = index">
+              {{project.projectName}} <button class="btn-circle btn-sm" (click)="selectedRelatedProjects.splice(i,1)">&#x274C;</button>
+            </span>
+          </div>
+        </div>
+      </div> <!-- END ROW 4-->
+      <div class="form-row"><!--START ROW-->
+        <div class="panel-body">
+          <table class="table table-bordered">
+            <caption style="font-weight: bold">Related Departments</caption>
+            <thead>
+            <tr>
+              <th scope="col">Mobile</th>
+              <th scope="col">E-Business</th>
+              <th scope="col">ESS</th>
+              <th scope="col">Support</th>
+              <th scope="col">Other</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><input #mob [checked]="presalesInputsForm.controls['mobile'].value" type="checkbox" formControlName="mobile" value="mob.checked"></td>
+              <td><input #ebiz [checked]="presalesInputsForm.controls['ebusiness'].value" type="checkbox" formControlName="ebusiness" value="ebiz.checked"></td>
+              <td><input #ess [checked]="presalesInputsForm.controls['ess'].value" type="checkbox" formControlName="ess" value="ess.checked"></td>
+              <td><input #supp [checked]="presalesInputsForm.controls['support'].value" type="checkbox" formControlName="support" value="supp.checked"></td>
+              <td><input type="text" name="relatedOther"></td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="text-center">
+            <button class="btn btn-success waves-effect waves-light" type="button" [disabled]="!presalesInputsForm.valid" (click)="onClickSubmitProjectInput()"><span class="btn-label"><i class="fa fa-send"></i></span>Submit</button>
+          </div>
+          <br>
+          <div class="alert alert-danger col-md-6" *ngIf="presalesService.isNewProject && !presalesInputsForm.valid" role="alert">You must fill and submit all required fields to proceed.</div>
+        </div>
+      </div><!--END ROW 5-->
+    </div>
+  </div><!-- END PANEL 1-->
+  <!--TODO remove all true false shit-->
+  <div class="panel" [ngClass]="{'panel-info': true + presalesInputsForm.valid , 'panel-warning': false * !presalesInputsForm.valid}"><!-- PROJECT STATEMENT, SCOPE, AGREEMENT-->
+    <div class="panel-heading">
+      <a *ngIf="true || presalesInputsForm.valid" data-toggle="collapse" href="#collapse1" >PROJECT STATEMENT, SCOPE, AGREEMENT</a>
+      <span *ngIf="false && !presalesInputsForm.valid" class="disabled">PROJECT STATEMENT, SCOPE, AGREEMENT</span>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="form-row"><!-- START ROW 1 -->
+        <div class="panel-body">
+          <div class="col-md-4">
+            <table class="table">
+              <caption class="required">Problem statement</caption>
+              <thead>
+              <tr>
+                <th scope="col" style="background-color: darkgray; color: black;">Describe the business reasons for initiating the project, specifically stating the business problem.</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td style="padding: 0;"><textarea [(ngModel)]="problemStatement" name="problemStatement" [ngModelOptions]="{standalone: true}"></textarea></td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="text-center">
+              <button class="btn btn-success waves-effect waves-light" type="button" (click)="submitProblemStatement(problemStatement);"><span class="btn-label"><i class="fa fa-send"></i></span>Submit problem statement</button>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <label class="required">BRD</label>
+            <input type="file" (change)="fileChange($event, 'BRD')" class="md-date-pic form-control" name="BRD">
+          </div>
+          <div class="col-md-4">
+            <label>RFP</label>
+            <input type="file" (change)="fileChange($event, 'RFP')" class="md-date-pic form-control" name="RFP">
+          </div>
+          <div class="col-md-4">
+            <label>Technical Proposal</label>
+            <input type="file" (change)="fileChange($event, 'TechnicalProposal')" class="md-date-pic form-control" name="TechnicalProposal">
+          </div>
+        </div><!--END ROW-->
+        <div class="form-row"><!--START ROW-->
+          <div class="panel-body">
+            <div class="col-md-4">
+              <label class="required">Contract</label>
+              <div class="row">
+                <div class="col-md-6 p-0">
+                  <select class="form-control md-date-pic" formControlName="hasContract">
+                    <option disabled selected>Choose</option>
+                    <option *ngFor="let option of yesOrNo" [ngValue]="option">{{option}}</option>
+                  </select>
+                </div>
+                <div class="col-md-6 p-0">
+                  <input type="file" (change)="fileChange($event, 'Contract')" class="md-date-pic form-control" name="Contract" [disabled]="presalesInputsForm.controls['hasContract'].value!='Yes'">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label>Purchase Order</label>
+              <input type="file" (change)="fileChange($event, 'PurchaseOrder')" class="md-date-pic form-control" name="Order">
+            </div>
+            <div class="col-md-4">
+              <label>Contract Amendment</label>
+              <input type="file" (change)="fileChange($event, 'ContractAmendment')" class="md-date-pic form-control" name="Amendment">
+            </div>
+          </div>
+        </div><!--END ROW-->
+      </div>
+    </div>
+  </div><!--END PANEL 2-->
+
+  <div class="panel" [ngClass]="{'panel-info': true + presalesInputsForm.valid , 'panel-warning': false * !presalesInputsForm.valid}"><!-- PROJECT RISKs/Opportunities/dependencies-->
+    <div class="panel-heading">
+      <a *ngIf="true || presalesInputsForm.valid" data-toggle="collapse" href="#collapse2">PROJECT RISKs/Opportunities/dependencies</a>
+      <span *ngIf="false && !presalesInputsForm.valid" class="disabled">PROJECT RISKs/Opportunities/dependencies</span>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="form-row"><!-- START ROW 1 -->
+        <div class="panel-body">
+          <app-project-risk-opp-dep-table></app-project-risk-opp-dep-table><!-- START/END TABLE -->
+        </div>
+      </div>
+    </div>
+  </div><!--END PANEL 3-->
+  <div class="panel" [ngClass]="{'panel-info': true + presalesInputsForm.valid , 'panel-warning': false *!presalesInputsForm.valid}"><!-- PROJECT HISTORY-->
+    <div class="panel-heading">
+      <a *ngIf="true || presalesInputsForm.valid" data-toggle="collapse" href="#collapse3">PROJECT HISTORY</a>
+      <span *ngIf="false && !presalesInputsForm.valid" class="disabled">PROJECT HISTORY</span>
+    </div>
+    <div class="form-row"><!-- START ROW 1 -->
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">
+          <app-project-history-table></app-project-history-table><!-- START/END TABLE -->
+        </div>
+      </div>
+    </div>
+  </div><!--END PANEL 4-->
+</form>
+<!--<input type="file" (change)="fileChange($event)" placeholder="Upload file">-->
+<!--<input #file type="file" (change)="upload(file)" placeholder="Upload file">-->
+
+<!--<p>{{presalesInputsForm.value | json}}</p>-->
+<!--<p>{{presalesInputsForm.valid}}</p>-->
+<!--<button class="tst3 btn btn-info">Info Message</button>-->
+
+

@@ -1,0 +1,38 @@
+.required:after { content:"*"; color: red}
+input ,select , textarea {
+ box-shadow: #99a4ac 0px 0.5px 0.5px;
+ transition: all 0.2s;
+ }
+input:focus ,textarea:focus{
+
+ background-color: #e2ffeb;
+}
+
+label {
+margin: 10px;
+  font-weight: bold;
+
+}
+.inputfile {
+  cursor: inherit;
+  display: block;
+  font-size: 999px;
+  filter: alpha(opacity=0);
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+}
+button {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+ .notActive {
+  cursor: not-allowed;
+
+
+}

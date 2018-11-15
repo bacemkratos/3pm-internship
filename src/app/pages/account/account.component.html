@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <div class="row panel panel-info">
+      <div class="panel-heading  ">
+        <h4 class="text-white">User Account Settings</h4>
+      </div>
+       <div class="panel-body row">
+          <div class="m-t-10 col-lg-4 col-md-4 col col-sm-6 col-xs-12">
+            <label for="usernameid" ><i class="fa fa-user m-r-5"></i>User Name :</label>
+            <output id="usernameid">{{user.username}}</output>
+          </div>
+         <div class="m-t-10 col-lg-4 col-md-4 col col-sm-6 col-xs-12">
+         </div>
+         <div class="m-t-10 col-lg-4 col-md-4 col col-sm-6 col-xs-12">
+           <label for="emailid" ><i class="fa fa-envelope m-r-5"></i>User Email :</label>
+           <output id="emailid">{{user.email}}</output>
+         </div>
+         <div class="m-t-10 col-lg-4 col-md-4 col col-sm-6 col-xs-12">
+           <label for="userroleid" ><i class="fa fa-user-md m-r-5"></i>User Roles :</label>
+           <div id ="userroleid" class="checkbox checkbox-primary">
+             <input id="pmo" type="checkbox" (click)="onClickRoles('PMO')" [checked]="checkChoice('PMO')"  >
+             <label for="pmo"> PMO </label> <br>
+             <input    id="pm" type="checkbox" (click)="onClickRoles('PM')" [checked]="checkChoice('PM')" >
+             <label class="m-t-10" for="pm"> PM </label> <br>
+             <input   id="other" type="checkbox"  (click)="onClickRoles('AM')" [checked]="checkChoice('AM')" >
+             <label class="m-t-10" for="other"> AM </label>
+           </div>
+         </div>
+         <div class="m-t-10 col-lg-4 col-md-4 col col-sm-6 col-xs-12">
+         </div>
+         <div class="m-t-10 col-lg-4 col-md-4 col col-sm-6 col-xs-12">
+           <label for="paswordid" ><i class="fa fa-unlock-alt m-r-5"></i>User Password :</label>
+           <output id="paswordid">**************</output>
+         </div>
+       </div>
+      <div class="row">
+        <div class=" col-lg-4 col-md-4 col col-sm-6 col-xs-12">
+          <button class=" btn btn-primary m-r-40 "  (click)="saveRoles(user.id,user.roles)"> Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

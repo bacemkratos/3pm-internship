@@ -1,0 +1,43 @@
+.calendar-event-tag tag {
+  display: none !important;
+}
+
+.calendar-event-tag .ng2-tag-input {
+  border-bottom: 1px solid #e5ebec!important;
+  border: 1px solid #e5ebec;
+  height: 38px !important;
+  padding: 0px !important;
+  color: #565656 !important;
+}
+
+.calendar-event-tag .ng2-tag-input__text-input {
+  background: transparent;
+  padding: 7px 12px !important;
+  letter-spacing: 0.3px;
+}
+
+.calendar-event-tag input::-moz-placeholder {
+   color: #8d9498;
+   opacity: 1;
+ }
+
+.calendar-event-tag  input:-ms-input-placeholder {
+   color: #8d9498;
+ }
+
+.calendar-event-tag  input::-webkit-input-placeholder {
+   color: #8d9498;
+ }
+
+.cal-event .calendar-event {
+  position: relative;
+  z-index: 1111999;
+}
+
+.calendar-event-label.checkbox label {
+  padding-left: 10px;
+}
+
+#calendar .cal-month-view .cal-day-badge {
+  background: #00bbd9;
+}

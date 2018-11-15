@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="white-box">
+      <h3 class="box-title">Gallery Page</h3>
+      <div id="gallery">
+        <div id="gallery-header">
+          <div id="gallery-header-center">
+            <div id="gallery-header-center-left">
+              <div class="gallery-header-center-right-links" id="filter-all">All</div>
+              <div class="gallery-header-center-right-links" id="filter-studio">Studio</div>
+              <div class="gallery-header-center-right-links" id="filter-landscape">Landscapes</div>
+            </div>
+          </div>
+        </div>
+        <div id="gallery-content">
+          <div id="gallery-content-center">
+            <div class="img-row" *ngFor="let image of _albums; let i=index">
+              <a href="javascript:" data-toggle="lightbox" data-gallery="multiimages" data-title="Image title will be apear here">
+                <img class="img-frame" [src]="image.thumb" (click)="open(i)" class="all {{ image.type }}" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

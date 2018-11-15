@@ -1,0 +1,1311 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i);
+
+/* default theme */
+.default .preloader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  background: #fff
+}
+
+.default .preloader .cssload-speeding-wheel {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3.5px)
+}
+
+body .default {
+  background: #fff
+}
+
+.default .logo i {
+  color: #fff
+}
+
+.default .navbar-header, .default .right-sidebar .rpanel-title {
+  background: #0078bc;
+  background: -moz-linear-gradient(left, #0078bc 1%, #00beda 100%);
+  background: -webkit-linear-gradient(left, #0078bc 1%, #00beda 100%);
+  background: linear-gradient(to right, #0078bc 1%, #00beda 100%)
+}
+
+.default .bg-title .breadcrumb .active {
+  color: #0283cc
+}
+
+.default .sidebar-nav, sidebar {
+  background: #fff
+}
+
+.default #side-menu li a {
+  color: #8d9498
+}
+
+.default .sidebar-nav ul#side-menu li.active > a {
+  color: #2b2b2b
+}
+
+.default #side-menu ul > li > a:hover, .default.mini-sidebar .sidebar-nav #side-menu > li:hover > a i, .default .sidebar-nav ul#side-menu li a.active i {
+  color: #0283cc
+}
+
+.default #side-menu ul > li > a.active {
+  color: #2b2b2b;
+  font-weight: 500
+}
+
+.default.fix-sidebar .top-left-part {
+  background: #0078bc
+}
+
+.default .bg-theme {
+  background-color: #0283cc !important
+}
+
+.default .chat-list .odd .chat-text {
+  background: #0283cc
+}
+
+.default .btn-custom {
+  background: #0283cc;
+  border: 1px solid #0283cc;
+  color: #fff
+}
+
+.default .btn-custom:hover {
+  background: #0283cc;
+  opacity: .8;
+  color: #fff;
+  border: 1px solid #0283cc
+}
+
+.default .customtab li.active a, .default .customtab li.active a:focus, .default .customtab li.active a:hover {
+  border-bottom: 2px solid #0283cc;
+  color: #0283cc
+}
+
+.default .tabs-vertical li.active a, .default .tabs-vertical li.active a:focus, .default .tabs-vertical li.active a:hover {
+  background: #0283cc;
+  border-right: 2px solid #0283cc
+}
+
+.default .nav-pills > li.active > a, .default .nav-pills > li.active > a:focus, .default .nav-pills > li.active > a:hover {
+  background: #0283cc;
+  color: #fff
+}
+
+/* default-dark theme */
+.default-dark .preloader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  background: #fff
+}
+
+.default-dark .preloader .cssload-speeding-wheel {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3.5px)
+}
+
+body .default-dark {
+  background: #4f5467
+}
+
+.default-dark .top-left-part {
+  background: rgba(0, 0, 0, .1)
+}
+
+.default-dark .logo i {
+  color: #fff
+}
+
+.default-dark .navbar-header, .default-dark .right-sidebar .rpanel-title {
+  background: #0078bc;
+  background: -moz-linear-gradient(left, #0078bc 1%, #00beda 100%);
+  background: -webkit-linear-gradient(left, #0078bc 1%, #00beda 100%);
+  background: linear-gradient(to right, #0078bc 1%, #00beda 100%)
+}
+
+.default-dark .bg-title .breadcrumb .active {
+  color: #0283cc
+}
+
+.default-dark .sidebar, .default-dark .sidebar-nav {
+  background: #4f5467
+}
+
+.default-dark .sidebar {
+  border-right: 1px solid #727685
+}
+
+.default-dark #side-menu li a {
+  color: #8d9498
+}
+
+.default-dark .sidebar-nav ul#side-menu li.active > a {
+  color: #fff
+}
+
+.default-dark #side-menu ul > li > a:hover, .default-dark .sidebar-nav ul#side-menu li a.active i {
+  color: #0283cc
+}
+
+.default-dark #side-menu ul > li > a.active {
+  color: #fff;
+  font-weight: 500
+}
+
+.default-dark.mini-sidebar .sidebar-nav #side-menu > li:hover > a {
+  background: #444859;
+  color: #fff;
+  border-color: #444859
+}
+
+.default-dark.mini-sidebar .sidebar-nav #side-menu > li:hover > a i {
+  color: #0283cc
+}
+
+.default-dark.mini-sidebar .sidebar-nav #side-menu > li > ul {
+  background: #3d4050
+}
+
+.default-dark.fix-sidebar .top-left-part {
+  background: #0078bc
+}
+
+.default-dark .user-profile .profile-text a {
+  color: #fff
+}
+
+.default-dark .bg-theme {
+  background-color: #0283cc !important
+}
+
+.default-dark .chat-list .odd .chat-text {
+  background: #0283cc
+}
+
+.default-dark .btn-custom {
+  background: #0283cc;
+  border: 1px solid #0283cc;
+  color: #fff
+}
+
+.default-dark .btn-custom:hover {
+  background: #0283cc;
+  opacity: .8;
+  color: #fff;
+  border: 1px solid #0283cc
+}
+
+.default-dark .customtab li.active a, .default-dark .customtab li.active a:focus, .default-dark .customtab li.active a:hover {
+  border-bottom: 2px solid #0283cc;
+  color: #0283cc
+}
+
+.default-dark .tabs-vertical li.active a, .default-dark .tabs-vertical li.active a:focus, .default-dark .tabs-vertical li.active a:hover {
+  background: #0283cc;
+  border-right: 2px solid #0283cc
+}
+
+.default-dark .nav-pills > li.active > a, .default-dark .nav-pills > li.active > a:focus, .default-dark .nav-pills > li.active > a:hover {
+  background: #0283cc;
+  color: #fff
+}
+
+/* black theme */
+.black .preloader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  background: #fff
+}
+
+.black .preloader .cssload-speeding-wheel {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3.5px)
+}
+
+body .black {
+  background: #fff
+}
+
+.black .logo i {
+  color: #fff
+}
+
+.black .navbar-header, .black .right-sidebar .rpanel-title {
+  background: #282f32;
+  background: -moz-linear-gradient(left, #282f32 1%, #4b555b 100%);
+  background: -webkit-linear-gradient(left, #282f32 1%, #4b555b 100%);
+  background: linear-gradient(to right, #282f32 1%, #4b555b 100%)
+}
+
+.black .bg-title .breadcrumb .active {
+  color: #282f32
+}
+
+.black .sidebar-nav, sidebar {
+  background: #fff
+}
+
+.black #side-menu li a {
+  color: #8d9498
+}
+
+.black .sidebar-nav ul#side-menu li.active > a {
+  color: #2b2b2b
+}
+
+.black #side-menu ul > li > a:hover, .black.mini-sidebar .sidebar-nav #side-menu > li:hover > a i, .black .sidebar-nav ul#side-menu li a.active i {
+  color: #282f32
+}
+
+.black #side-menu ul > li > a.active {
+  color: #2b2b2b;
+  font-weight: 500
+}
+
+.black.fix-sidebar .top-left-part {
+  background: #282f32
+}
+
+.black .bg-theme {
+  background-color: #282f32 !important
+}
+
+.black .chat-list .odd .chat-text {
+  background: #282f32
+}
+
+.black .btn-custom {
+  background: #282f32;
+  border: 1px solid #282f32;
+  color: #fff
+}
+
+.black .btn-custom:hover {
+  background: #282f32;
+  opacity: .8;
+  color: #fff;
+  border: 1px solid #282f32
+}
+
+.black .customtab li.active a, .black .customtab li.active a:focus, .black .customtab li.active a:hover {
+  border-bottom: 2px solid #282f32;
+  color: #282f32
+}
+
+.black .tabs-vertical li.active a, .black .tabs-vertical li.active a:focus, .black .tabs-vertical li.active a:hover {
+  background: #282f32;
+  border-right: 2px solid #282f32
+}
+
+.black .nav-pills > li.active > a, .black .nav-pills > li.active > a:focus, .black .nav-pills > li.active > a:hover {
+  background: #282f32;
+  color: #fff
+}
+
+/* black-dark theme */
+.black-dark .preloader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  background: #fff
+}
+
+.black-dark .preloader .cssload-speeding-wheel {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3.5px)
+}
+
+body .black-dark {
+  background: #4f5467
+}
+
+.black-dark .top-left-part {
+  background: rgba(0, 0, 0, .1)
+}
+
+.black-dark .logo i {
+  color: #fff
+}
+
+.black-dark .navbar-header, .black-dark .right-sidebar .rpanel-title {
+  background: #282f32;
+  background: -moz-linear-gradient(left, #282f32 1%, #4b555b 100%);
+  background: -webkit-linear-gradient(left, #282f32 1%, #4b555b 100%);
+  background: linear-gradient(to right, #282f32 1%, #4b555b 100%)
+}
+
+.black-dark .bg-title .breadcrumb .active {
+  color: #282f32
+}
+
+.black-dark .sidebar, .black-dark .sidebar-nav {
+  background: #4f5467
+}
+
+.black-dark .sidebar {
+  border-right: 1px solid #727685
+}
+
+.black-dark #side-menu li a {
+  color: #8d9498
+}
+
+.black-dark .sidebar-nav ul#side-menu li.active > a {
+  color: #fff
+}
+
+.black-dark #side-menu ul > li > a:hover, .black-dark .sidebar-nav ul#side-menu li a.active i {
+  color: #282f32
+}
+
+.black-dark #side-menu ul > li > a.active {
+  color: #fff;
+  font-weight: 500
+}
+
+.black-dark.mini-sidebar .sidebar-nav #side-menu > li:hover > a {
+  background: #444859;
+  color: #fff;
+  border-color: #444859
+}
+
+.black-dark.mini-sidebar .sidebar-nav #side-menu > li:hover > a i {
+  color: #282f32
+}
+
+.black-dark.mini-sidebar .sidebar-nav #side-menu > li > ul {
+  background: #3d4050
+}
+
+.black-dark.fix-sidebar .top-left-part {
+  background: #282f32
+}
+
+.black-dark .user-profile .profile-text a {
+  color: #fff
+}
+
+.black-dark .bg-theme {
+  background-color: #282f32 !important
+}
+
+.black-dark .chat-list .odd .chat-text {
+  background: #282f32
+}
+
+.black-dark .btn-custom {
+  background: #282f32;
+  border: 1px solid #282f32;
+  color: #fff
+}
+
+.black-dark .btn-custom:hover {
+  background: #282f32;
+  opacity: .8;
+  color: #fff;
+  border: 1px solid #282f32
+}
+
+.black-dark .customtab li.active a, .black-dark .customtab li.active a:focus, .black-dark .customtab li.active a:hover {
+  border-bottom: 2px solid #282f32;
+  color: #282f32
+}
+
+.black-dark .tabs-vertical li.active a, .black-dark .tabs-vertical li.active a:focus, .black-dark .tabs-vertical li.active a:hover {
+  background: #282f32;
+  border-right: 2px solid #282f32
+}
+
+.black-dark .nav-pills > li.active > a, .black-dark .nav-pills > li.active > a:focus, .black-dark .nav-pills > li.active > a:hover {
+  background: #282f32;
+  color: #fff
+}
+
+/* green theme*/
+
+.green .preloader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  background: #fff
+}
+
+.green .preloader .cssload-speeding-wheel {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3.5px)
+}
+
+body .green {
+  background: #fff
+}
+
+.green .logo i {
+  color: #fff
+}
+
+.green .navbar-header, .green .right-sidebar .rpanel-title {
+  background: #25bf67;
+  background: -moz-linear-gradient(left, #25bf67 1%, #3fdd82 100%);
+  background: -webkit-linear-gradient(left, #25bf67 1%, #3fdd82 100%);
+  background: linear-gradient(to right, #25bf67 1%, #3fdd82 100%)
+}
+
+.green .bg-title .breadcrumb .active {
+  color: #2ecc71
+}
+
+.green .sidebar-nav, .green sidebar {
+  background: #fff
+}
+
+.green #side-menu li a {
+  color: #8d9498
+}
+
+.green .sidebar-nav ul#side-menu li.active > a {
+  color: #2b2b2b
+}
+
+.green #side-menu ul > li > a:hover, .green.mini-sidebar .sidebar-nav #side-menu > li:hover > a i, .green .sidebar-nav ul#side-menu li a.active i {
+  color: #2ecc71
+}
+
+.green #side-menu ul > li > a.active {
+  color: #2b2b2b;
+  font-weight: 500
+}
+
+.green.fix-sidebar .top-left-part {
+  background: #25bf67
+}
+
+.green .bg-theme {
+  background-color: #2ecc71 !important
+}
+
+.green .chat-list .odd .chat-text {
+  background: #2ecc71
+}
+
+.green .btn-custom {
+  background: #2ecc71;
+  border: 1px solid #2ecc71;
+  color: #fff
+}
+
+.green .btn-custom:hover {
+  background: #2ecc71;
+  opacity: .8;
+  color: #fff;
+  border: 1px solid #2ecc71
+}
+
+.green .customtab li.active a, .green .customtab li.active a:focus, .green .customtab li.active a:hover {
+  border-bottom: 2px solid #2ecc71;
+  color: #2ecc71
+}
+
+.green .tabs-vertical li.active a, .green .tabs-vertical li.active a:focus, .green .tabs-vertical li.active a:hover {
+  background: #2ecc71;
+  border-right: 2px solid #2ecc71
+}
+
+.green .nav-pills > li.active > a, .green .nav-pills > li.active > a:focus, .green .nav-pills > li.active > a:hover {
+  background: #2ecc71;
+  color: #fff
+}
+
+/* green-dark theme */
+.green-dark .preloader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  background: #fff
+}
+
+.green-dark .preloader .cssload-speeding-wheel {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3.5px)
+}
+
+body .green-dark {
+  background: #4f5467
+}
+
+.green-dark .top-left-part {
+  background: rgba(0, 0, 0, .1)
+}
+
+.green-dark .logo i {
+  color: #fff
+}
+
+.green-dark .navbar-header, .green-dark .right-sidebar .rpanel-title {
+  background: #25bf67;
+  background: -moz-linear-gradient(left, #25bf67 1%, #3fdd82 100%);
+  background: -webkit-linear-gradient(left, #25bf67 1%, #3fdd82 100%);
+  background: linear-gradient(to right, #25bf67 1%, #3fdd82 100%)
+}
+
+.green-dark .bg-title .breadcrumb .active {
+  color: #2ecc71
+}
+
+.green-dark .sidebar, .green-dark .sidebar-nav {
+  background: #4f5467
+}
+
+.green-dark .sidebar {
+  border-right: 1px solid #727685
+}
+
+.green-dark #side-menu li a {
+  color: #8d9498
+}
+
+.green-dark .sidebar-nav ul#side-menu li.active > a {
+  color: #fff
+}
+
+.green-dark #side-menu ul > li > a:hover, .green-dark .sidebar-nav ul#side-menu li a.active i {
+  color: #2ecc71
+}
+
+.green-dark #side-menu ul > li > a.active {
+  color: #fff;
+  font-weight: 500
+}
+
+.green-dark.mini-sidebar .sidebar-nav #side-menu > li:hover > a {
+  background: #444859;
+  color: #fff;
+  border-color: #444859
+}
+
+.green-dark.mini-sidebar .sidebar-nav #side-menu > li:hover > a i {
+  color: #2ecc71
+}
+
+.green-dark.mini-sidebar .sidebar-nav #side-menu > li > ul {
+  background: #3d4050
+}
+
+.green-dark.fix-sidebar .top-left-part {
+  background: #25bf67
+}
+
+.green-dark .user-profile .profile-text a {
+  color: #fff
+}
+
+.green-dark .bg-theme {
+  background-color: #2ecc71 !important
+}
+
+.green-dark .chat-list .odd .chat-text {
+  background: #2ecc71
+}
+
+.green-dark .btn-custom {
+  background: #2ecc71;
+  border: 1px solid #2ecc71;
+  color: #fff
+}
+
+.green-dark .btn-custom:hover {
+  background: #2ecc71;
+  opacity: .8;
+  color: #fff;
+  border: 1px solid #2ecc71
+}
+
+.green-dark .customtab li.active a, .green-dark .customtab li.active a:focus, .green-dark .customtab li.active a:hover {
+  border-bottom: 2px solid #2ecc71;
+  color: #2ecc71
+}
+
+.green-dark .tabs-vertical li.active a, .green-dark .tabs-vertical li.active a:focus, .green-dark .tabs-vertical li.active a:hover {
+  background: #2ecc71;
+  border-right: 2px solid #2ecc71
+}
+
+.green-dark .nav-pills > li.active > a, .green-dark .nav-pills > li.active > a:focus, .green-dark .nav-pills > li.active > a:hover {
+  background: #2ecc71;
+  color: #fff
+}
+
+/* purple theme*/
+.purple .preloader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  background: #fff
+}
+
+.purple .preloader .cssload-speeding-wheel {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3.5px)
+}
+
+body .purple {
+  background: #fff
+}
+
+.purple .logo i {
+  color: #fff
+}
+
+.purple .navbar-header, .purple .right-sidebar .rpanel-title {
+  background: #4a23ad;
+  background: -moz-linear-gradient(left, #4a23ad 1%, #693fd5 100%);
+  background: -webkit-linear-gradient(left, #4a23ad 1%, #693fd5 100%);
+  background: linear-gradient(to right, #4a23ad 1%, #693fd5 100%)
+}
+
+.purple .bg-title .breadcrumb .active {
+  color: #4a23ad
+}
+
+.purple .sidebar-nav, .purple sidebar {
+  background: #fff
+}
+
+.purple #side-menu li a {
+  color: #8d9498
+}
+
+.purple .sidebar-nav ul#side-menu li.active > a {
+  color: #2b2b2b
+}
+
+.purple #side-menu ul > li > a:hover, .purple.mini-sidebar .sidebar-nav #side-menu > li:hover > a i, .purple .sidebar-nav ul#side-menu li a.active i {
+  color: #4a23ad
+}
+
+.purple #side-menu ul > li > a.active {
+  color: #2b2b2b;
+  font-weight: 500
+}
+
+.purple.fix-sidebar .top-left-part {
+  background: #4a23ad
+}
+
+.purple .bg-theme {
+  background-color: #4a23ad !important
+}
+
+.purple .chat-list .odd .chat-text {
+  background: #4a23ad
+}
+
+.purple .btn-custom {
+  background: #4a23ad;
+  border: 1px solid #4a23ad;
+  color: #fff
+}
+
+.purple .btn-custom:hover {
+  background: #4a23ad;
+  opacity: .8;
+  color: #fff;
+  border: 1px solid #4a23ad
+}
+
+.purple .customtab li.active a, .purple .customtab li.active a:focus, .purple .customtab li.active a:hover {
+  border-bottom: 2px solid #4a23ad;
+  color: #4a23ad
+}
+
+.purple .tabs-vertical li.active a, .purple .tabs-vertical li.active a:focus, .purple .tabs-vertical li.active a:hover {
+  background: #4a23ad;
+  border-right: 2px solid #4a23ad
+}
+
+.purple .nav-pills > li.active > a, .purple .nav-pills > li.active > a:focus, .purple .nav-pills > li.active > a:hover {
+  background: #4a23ad;
+  color: #fff
+}
+
+/* purple-dark theme*/
+.purple-dark .preloader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  background: #fff
+}
+
+.purple-dark .preloader .cssload-speeding-wheel {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3.5px)
+}
+
+body .purple-dark {
+  background: #4f5467
+}
+
+.purple-dark .top-left-part {
+  background: rgba(0, 0, 0, .1)
+}
+
+.purple-dark .logo i {
+  color: #fff
+}
+
+.purple-dark .navbar-header, .purple-dark .right-sidebar .rpanel-title {
+  background: #4a23ad;
+  background: -moz-linear-gradient(left, #4a23ad 1%, #693fd5 100%);
+  background: -webkit-linear-gradient(left, #4a23ad 1%, #693fd5 100%);
+  background: linear-gradient(to right, #4a23ad 1%, #693fd5 100%)
+}
+
+.purple-dark .bg-title .breadcrumb .active {
+  color: #4a23ad
+}
+
+.purple-dark .sidebar, .purple-dark .sidebar-nav {
+  background: #4f5467
+}
+
+.purple-dark .sidebar {
+  border-right: 1px solid #727685
+}
+
+.purple-dark #side-menu li a {
+  color: #8d9498
+}
+
+.purple-dark .sidebar-nav ul#side-menu li.active > a {
+  color: #fff
+}
+
+.purple-dark #side-menu ul > li > a:hover, .purple-dark .sidebar-nav ul#side-menu li a.active i {
+  color: #4a23ad
+}
+
+.purple-dark #side-menu ul > li > a.active {
+  color: #fff;
+  font-weight: 500
+}
+
+.purple-dark.mini-sidebar .sidebar-nav #side-menu > li:hover > a {
+  background: #444859;
+  color: #fff;
+  border-color: #444859
+}
+
+.purple-dark.mini-sidebar .sidebar-nav #side-menu > li:hover > a i {
+  color: #4a23ad
+}
+
+.purple-dark.mini-sidebar .sidebar-nav #side-menu > li > ul {
+  background: #3d4050
+}
+
+.purple-dark.fix-sidebar .top-left-part {
+  background: #4a23ad
+}
+
+.purple-dark .user-profile .profile-text a {
+  color: #fff
+}
+
+.purple-dark .bg-theme {
+  background-color: #4a23ad !important
+}
+
+.purple-dark .chat-list .odd .chat-text {
+  background: #4a23ad
+}
+
+.purple-dark .btn-custom {
+  background: #4a23ad;
+  border: 1px solid #4a23ad;
+  color: #fff
+}
+
+.purple-dark .btn-custom:hover {
+  background: #4a23ad;
+  opacity: .8;
+  color: #fff;
+  border: 1px solid #4a23ad
+}
+
+.purple-dark .customtab li.active a, .purple-dark .customtab li.active a:focus, .purple-dark .customtab li.active a:hover {
+  border-bottom: 2px solid #4a23ad;
+  color: #4a23ad
+}
+
+.purple-dark .tabs-vertical li.active a, .purple-dark .tabs-vertical li.active a:focus, .purple-dark .tabs-vertical li.active a:hover {
+  background: #4a23ad;
+  border-right: 2px solid #4a23ad
+}
+
+.purple-dark .nav-pills > li.active > a, .purple-dark .nav-pills > li.active > a:focus, .purple-dark .nav-pills > li.active > a:hover {
+  background: #4a23ad;
+  color: #fff
+}
+
+/* red theme */
+.red .preloader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  background: #fff
+}
+
+.red .preloader .cssload-speeding-wheel {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3.5px)
+}
+
+body .red {
+  background: #fff
+}
+
+.red .logo i {
+  color: #fff
+}
+
+.red .navbar-header, .red .right-sidebar .rpanel-title {
+  background: #d93c17;
+  background: -moz-linear-gradient(left, #d93c17 1%, #ff704f 100%);
+  background: -webkit-linear-gradient(left, #d93c17 1%, #ff704f 100%);
+  background: linear-gradient(to right, #d93c17 1%, #ff704f 100%)
+}
+
+.red .bg-title .breadcrumb .active {
+  color: #e74a25
+}
+
+.red .sidebar-nav, .red sidebar {
+  background: #fff
+}
+
+.red #side-menu li a {
+  color: #8d9498
+}
+
+.red .sidebar-nav ul#side-menu li.active > a {
+  color: #2b2b2b
+}
+
+.red #side-menu ul > li > a:hover, .red.mini-sidebar .sidebar-nav #side-menu > li:hover > a i, .red .sidebar-nav ul#side-menu li a.active i {
+  color: #e74a25
+}
+
+.red #side-menu ul > li > a.active {
+  color: #2b2b2b;
+  font-weight: 500
+}
+
+.red.fix-sidebar .top-left-part {
+  background: #d93c17
+}
+
+.red .bg-theme {
+  background-color: #e74a25 !important
+}
+
+.red .chat-list .odd .chat-text {
+  background: #e74a25
+}
+
+.red .btn-custom {
+  background: #e74a25;
+  border: 1px solid #e74a25;
+  color: #fff
+}
+
+.red .btn-custom:hover {
+  background: #e74a25;
+  opacity: .8;
+  color: #fff;
+  border: 1px solid #e74a25
+}
+
+.red .customtab li.active a, .red .customtab li.active a:focus, .red .customtab li.active a:hover {
+  border-bottom: 2px solid #e74a25;
+  color: #e74a25
+}
+
+.red .tabs-vertical li.active a, .red .tabs-vertical li.active a:focus, .red .tabs-vertical li.active a:hover {
+  background: #e74a25;
+  border-right: 2px solid #e74a25
+}
+
+.red .nav-pills > li.active > a, .red .nav-pills > li.active > a:focus, .red .nav-pills > li.active > a:hover {
+  background: #e74a25;
+  color: #fff
+}
+
+/* red-dark theme */
+.red-dark .preloader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  background: #fff
+}
+
+.red-dark .preloader .cssload-speeding-wheel {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3.5px)
+}
+
+body .red-dark {
+  background: #4f5467
+}
+
+.red-dark .top-left-part {
+  background: rgba(0, 0, 0, .1)
+}
+
+.red-dark .logo i {
+  color: #fff
+}
+
+.red-dark .navbar-header, .red-dark .right-sidebar .rpanel-title {
+  background: #d93c17;
+  background: -moz-linear-gradient(left, #d93c17 1%, #ff704f 100%);
+  background: -webkit-linear-gradient(left, #d93c17 1%, #ff704f 100%);
+  background: linear-gradient(to right, #d93c17 1%, #ff704f 100%)
+}
+
+.red-dark .bg-title .breadcrumb .active {
+  color: #e74a25
+}
+
+.red-dark .sidebar, .red-dark .sidebar-nav {
+  background: #4f5467
+}
+
+.red-dark .sidebar {
+  border-right: 1px solid #727685
+}
+
+.red-dark #side-menu li a {
+  color: #8d9498
+}
+
+.red-dark .sidebar-nav ul#side-menu li.active > a {
+  color: #fff
+}
+
+.red-dark #side-menu ul > li > a:hover, .red-dark .sidebar-nav ul#side-menu li a.active i {
+  color: #e74a25
+}
+
+.red-dark #side-menu ul > li > a.active {
+  color: #fff;
+  font-weight: 500
+}
+
+.red-dark.mini-sidebar .sidebar-nav #side-menu > li:hover > a {
+  background: #444859;
+  color: #fff;
+  border-color: #444859
+}
+
+.red-dark.mini-sidebar .sidebar-nav #side-menu > li:hover > a i {
+  color: #e74a25
+}
+
+.red-dark.mini-sidebar .sidebar-nav #side-menu > li > ul {
+  background: #3d4050
+}
+
+.red-dark.fix-sidebar .top-left-part {
+  background: #d93c17
+}
+
+.red-dark .user-profile .profile-text a {
+  color: #fff
+}
+
+.red-dark .bg-theme {
+  background-color: #e74a25 !important
+}
+
+.red-dark .chat-list .odd .chat-text {
+  background: #e74a25
+}
+
+.red-dark .btn-custom {
+  background: #e74a25;
+  border: 1px solid #e74a25;
+  color: #fff
+}
+
+.red-dark .btn-custom:hover {
+  background: #e74a25;
+  opacity: .8;
+  color: #fff;
+  border: 1px solid #e74a25
+}
+
+.red-dark .customtab li.active a, .red-dark .customtab li.active a:focus, .red-dark .customtab li.active a:hover {
+  border-bottom: 2px solid #e74a25;
+  color: #e74a25
+}
+
+.red-dark .tabs-vertical li.active a, .red-dark .tabs-vertical li.active a:focus, .red-dark .tabs-vertical li.active a:hover {
+  background: #e74a25;
+  border-right: 2px solid #e74a25
+}
+
+.red-dark .nav-pills > li.active > a, .red-dark .nav-pills > li.active > a:focus, .red-dark .nav-pills > li.active > a:hover {
+  background: #e74a25;
+  color: #fff
+}
+
+/* yellow theme */
+.yellow .preloader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  background: #fff
+}
+
+.yellow .preloader .cssload-speeding-wheel {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3.5px)
+}
+
+body .yellow {
+  background: #fff
+}
+
+.yellow .logo i {
+  color: #fff
+}
+
+.yellow .navbar-header, .yellow .right-sidebar .rpanel-title {
+  background: #f2a225;
+  background: -moz-linear-gradient(left, #f2a225 1%, #ffbb51 100%);
+  background: -webkit-linear-gradient(left, #f2a225 1%, #ffbb51 100%);
+  background: linear-gradient(to right, #f2a225 1%, #ffbb51 100%)
+}
+
+.yellow .bg-title .breadcrumb .active {
+  color: #ffb136
+}
+
+.yellow .sidebar-nav, .yellow sidebar {
+  background: #fff
+}
+
+.yellow #side-menu li a {
+  color: #8d9498
+}
+
+.yellow .sidebar-nav ul#side-menu li.active > a {
+  color: #2b2b2b
+}
+
+.yellow #side-menu ul > li > a:hover, .yellow .mini-sidebar .sidebar-nav #side-menu > li:hover > a i, .yellow .sidebar-nav ul#side-menu li a.active i {
+  color: #ffb136
+}
+
+.yellow #side-menu ul > li > a.active {
+  color: #2b2b2b;
+  font-weight: 500
+}
+
+.yellow.fix-sidebar .top-left-part {
+  background: #f2a225
+}
+
+.yellow .bg-theme {
+  background-color: #ffb136 !important
+}
+
+.yellow .chat-list .odd .chat-text {
+  background: #ffb136
+}
+
+.yellow .btn-custom {
+  background: #ffb136;
+  border: 1px solid #ffb136;
+  color: #fff
+}
+
+.yellow .btn-custom:hover {
+  background: #ffb136;
+  opacity: .8;
+  color: #fff;
+  border: 1px solid #ffb136
+}
+
+.yellow .customtab li.active a, .yellow .customtab li.active a:focus, .yellow .customtab li.active a:hover {
+  border-bottom: 2px solid #ffb136;
+  color: #ffb136
+}
+
+.yellow .tabs-vertical li.active a, .yellow .tabs-vertical li.active a:focus, .yellow .tabs-vertical li.active a:hover {
+  background: #ffb136;
+  border-right: 2px solid #ffb136
+}
+
+.yellow .nav-pills > li.active > a, .yellow .nav-pills > li.active > a:focus, .yellow .nav-pills > li.active > a:hover {
+  background: #ffb136;
+  color: #fff
+}
+
+/* yellow-dark theme*/
+
+.yellow-dark .preloader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  background: #fff
+}
+
+.yellow-dark .preloader .cssload-speeding-wheel {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3.5px)
+}
+
+body .yellow-dark {
+  background: #4f5467
+}
+
+.yellow-dark .top-left-part {
+  background: rgba(0, 0, 0, .1)
+}
+
+.yellow-dark .logo i {
+  color: #fff
+}
+
+.yellow-dark .navbar-header, .yellow-dark .right-sidebar .rpanel-title {
+  background: #f2a225;
+  background: -moz-linear-gradient(left, #f2a225 1%, #ffbb51 100%);
+  background: -webkit-linear-gradient(left, #f2a225 1%, #ffbb51 100%);
+  background: linear-gradient(to right, #f2a225 1%, #ffbb51 100%)
+}
+
+.yellow-dark .bg-title .breadcrumb .active {
+  color: #ffb136
+}
+
+.yellow-dark .sidebar, .yellow-dark .sidebar-nav {
+  background: #4f5467
+}
+
+.yellow-dark .sidebar {
+  border-right: 1px solid #727685
+}
+
+.yellow-dark #side-menu li a {
+  color: #8d9498
+}
+
+.yellow-dark .sidebar-nav ul#side-menu li.active > a {
+  color: #fff
+}
+
+.yellow-dark #side-menu ul > li > a:hover, .yellow-dark .sidebar-nav ul#side-menu li a.active i {
+  color: #ffb136
+}
+
+.yellow-dark #side-menu ul > li > a.active {
+  color: #fff;
+  font-weight: 500
+}
+
+.yellow-dark.mini-sidebar .sidebar-nav #side-menu > li:hover > a {
+  background: #444859;
+  color: #fff;
+  border-color: #444859
+}
+
+.yellow-dark.mini-sidebar .sidebar-nav #side-menu > li:hover > a i {
+  color: #ffb136
+}
+
+.yellow-dark.mini-sidebar .sidebar-nav #side-menu > li > ul {
+  background: #3d4050
+}
+
+.yellow-dark.fix-sidebar .top-left-part {
+  background: #f2a225
+}
+
+.yellow-dark .user-profile .profile-text a {
+  color: #fff
+}
+
+.yellow-dark .bg-theme {
+  background-color: #ffb136 !important
+}
+
+.yellow-dark .chat-list .odd .chat-text {
+  background: #ffb136
+}
+
+.yellow-dark .btn-custom {
+  background: #ffb136;
+  border: 1px solid #ffb136;
+  color: #fff
+}
+
+.yellow-dark .btn-custom:hover {
+  background: #ffb136;
+  opacity: .8;
+  color: #fff;
+  border: 1px solid #ffb136
+}
+
+.yellow-dark .customtab li.active a, .yellow-dark .customtab li.active a:focus, .yellow-dark .customtab li.active a:hover {
+  border-bottom: 2px solid #ffb136;
+  color: #ffb136
+}
+
+.yellow-dark .tabs-vertical li.active a, .yellow-dark .tabs-vertical li.active a:focus, .yellow-dark .tabs-vertical li.active a:hover {
+  background: #ffb136;
+  border-right: 2px solid #ffb136
+}
+
+.yellow-dark .nav-pills > li.active > a, .yellow-dark .nav-pills > li.active > a:focus, .yellow-dark .nav-pills > li.active > a:hover {
+  background: #ffb136;
+  color: #fff
+}

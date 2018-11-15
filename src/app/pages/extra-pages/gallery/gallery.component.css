@@ -1,0 +1,67 @@
+.lb-outerContainer {
+  border-radius: 0px;
+}
+
+.lightbox .lb-image {
+  border: 15px solid #fff;
+}
+
+.lightbox *{
+  box-sizing: inherit;
+}
+
+.lb-dataContainer {
+  background-color: #fff;
+  border-radius: 0px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.lb-data {
+  padding: 0 14px;
+  color: #333b3f;
+  font-family: 'Open Sans',sans-serif;
+}
+
+.lb-data .lb-caption {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.42857143;
+}
+
+.lb-data .lb-close {
+  background: none;
+  position: relative;
+}
+.lb-data .lb-close:after{
+  content: "\E082";
+  font-family: simple-line-icons;
+  position: absolute;
+  top: 20px;
+  right: 5px;
+  font-size: 20px;
+  color: #333b3f;
+  z-index: 1000;
+}
+
+.lb-outerContainer {
+  position: relative;
+  top: 68px;
+}
+.lb-dataContainer{
+  top: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.lightbox {
+  position: fixed;
+}
+@keyframes fadeInOverlay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}

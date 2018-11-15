@@ -1,0 +1,28 @@
+<div (window:resize)="onResize($event)" id="theme-config" class="{{ menuType }} {{ headerType }} {{ sidebarType }} {{ themeType}}">
+  <app-title></app-title>
+  <section id="wrapper" class="login-register">
+    <div class="login-box">
+      <div class="white-box">
+        <form class="form-horizontal form-material" id="loginform">
+          <div class="form-group">
+            <div class="col-xs-12 text-center">
+              <div class="user-thumb text-center"> <img alt="thumbnail" class="img-circle" width="100" src="assets/images/users/hanna.jpg">
+                <h3>Hanna</h3>
+              </div>
+            </div>
+          </div>
+          <div class="form-group ">
+            <div class="col-xs-12">
+              <input class="form-control" type="password" required placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <div class="col-xs-12">
+              <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light">Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

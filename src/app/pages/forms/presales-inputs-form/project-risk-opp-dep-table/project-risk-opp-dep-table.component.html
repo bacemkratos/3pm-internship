@@ -1,0 +1,109 @@
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th scope="col" style="width: 23%">Description</th>
+    <th scope="col" style="width: 15%">Type </th>
+    <th scope="col" style="width: 14%">Probability</th>
+    <th scope="col" style="width: 13%">Severity</th>
+    <th scope="col" style="width: 23%">Impact</th>
+    <th scope="col" style="width: 12%">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let riskEntry of riskEntries; let a = index">
+    <td>{{riskEntry.description}}</td>
+    <td>{{riskEntry.type}}</td>
+    <td>{{riskEntry.probability}}</td>
+    <td>{{riskEntry.severity}}</td>
+    <td>{{riskEntry.impact}}</td>
+    <td>
+      <a href="javascript:;" title="Edit" (click)="openEditDialogRisk(a)" data-toggle="modal" data-target="#AddAndEditModalRisks"><span class="glyphicon glyphicon-edit"></span></a>
+      <a href="javascript:;" title="Delete" data-toggle="modal" (click)="openDeleteDialogRisk(a)" data-target="#DeleteModalRisks"><span class="glyphicon glyphicon-trash"></span></a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h3 [hidden]="riskEntries.length != 0" style="text-align: center;">Table is empty, try adding a new entry</h3>
+
+<div class="button-box pull-right">
+  <button  type="button" class="btn btn-success btn-circle btn-lg m-b-10" data-toggle="modal" data-target="#AddAndEditModalRisks" (click)="openAddDialogRisk()">+</button>
+</div>
+
+<div class="modal fade" bsModal id="AddAndEditModalRisks" tabindex="-1" role="dialog" aria-labelledby="riskDialogLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #00AEEF;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title" id="riskDialogLabel">{{riskHtmlDialogLabel}}</h2> </div>
+      <div class="modal-body">
+        <form #riskForm="ngForm">
+          <div class="form-group">
+            <label class="required">Description</label>
+            <textarea type="text" class="form-control"  [(ngModel)]="riskEntry.description" name="riskDesc" required></textarea>
+          </div>
+          <div class="form-group">
+            <div class="col-md-4">
+              <label class="required">Type</label>
+              <select class="form-control" [(ngModel)]="riskEntry.type" name="riskType" [ngClass]="{invalidField: riskEntry.type == 'Choose', validField: riskEntry.type !='Choose'}">
+                <option disabled selected>Choose</option>
+                <option *ngFor="let option of typeSelectOption" [ngValue]="option">{{option}}</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="required">Probability</label>
+              <select class="form-control" [(ngModel)]="riskEntry.probability" name="riskProba" [ngClass]="{invalidField: riskEntry.probability == 'Choose', validField: riskEntry.probability !='Choose'}">
+                <option disabled selected>Choose</option>
+                <option *ngFor="let option of probabilitySelectOptions" [ngValue]="option">{{option}}</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="required">Severity</label>
+              <select class="form-control" [(ngModel)]="riskEntry.severity" name="riskSev" [ngClass]="{invalidField: riskEntry.severity == 'Choose', validField: riskEntry.severity !='Choose'}">
+                <option disabled selected>Choose</option>
+                <option *ngFor="let option of severitySelectOptions" [ngValue]="option">{{option}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="required">Impact</label>
+            <textarea type="text" class="form-control"  [(ngModel)]="riskEntry.impact" name="riskImpact" required></textarea>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" (click)="saveRisk()" [disabled]="!riskForm.form.valid || !selectTagsAreFilled()" class="btn btn-primary" data-dismiss="modal">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" bsModal id="DeleteModalRisks" tabindex="-1" role="dialog" aria-labelledby="DeleteDialogLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: red;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title" id="DeleteDialogLabel">Are you sure you want to delete this?</h2> </div>
+      <div class="modal-body">
+        <form>
+          <label class="control-label" style="float: left;">Description:&nbsp; </label>
+          <p >{{riskEntry.description}}</p>
+          <label class="control-label" style="float: left;">Type:&nbsp; </label>
+          <p>{{riskEntry.type}}</p>
+          <label class="control-label" style="float: left;">Probability:&nbsp; </label>
+          <p>{{riskEntry.probability}}</p>
+          <label class="control-label" style="float: left;">Severity:&nbsp; </label>
+          <p>{{riskEntry.severity}}</p>
+          <label class="control-label" style="float: left;">Impact:&nbsp; </label>
+          <p>{{riskEntry.impact}}</p>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" (click)="deleteTableRowRisk()" data-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

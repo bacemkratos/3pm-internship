@@ -1,0 +1,127 @@
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th scope="col" style="width: 12%">Name</th>
+    <th scope="col" style="width: 12%">Role </th>
+    <th scope="col" style="width: 12%">Entity </th>
+    <th scope="col" style="width: 12%">Responsabilities</th>
+    <th scope="col" style="width: 12%"> Mail</th>
+    <th scope="col" style="width: 12%">Phone</th>
+    <th scope="col" style="width: 12%">Status</th>
+    <th scope="col" style="width: 6%">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let OrgEntry of organizationEntries; let a = index">
+    <td>{{OrgEntry.name}}</td>
+    <td>{{OrgEntry.role}}</td>
+    <td>{{OrgEntry.entity}}</td>
+    <td>{{OrgEntry.responsibilities}}</td>
+    <td>{{OrgEntry.mail}}</td>
+    <td>{{OrgEntry.phone}}</td>
+    <td>{{OrgEntry.status}}</td>
+    <td>
+      <a href="javascript:;" title="Edit" (click)="openEditDialogO(a)" data-toggle="modal" data-target="#Addorg"><span class="glyphicon glyphicon-edit"></span></a>
+      <a href="javascript:;" title="Delete" data-toggle="modal" (click)="openDeleteDialogO(a)" data-target="#deleteOrg"><span class="glyphicon glyphicon-trash"></span></a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h3 [hidden]="organizationEntries.length != 0" style="text-align: center;">Table is empty, try adding a new entry</h3>
+
+<div class="button-box pull-right">
+  <button  type="button" class="btn btn-success btn-circle btn-lg m-b-10" data-toggle="modal" data-target="#Addorg" (click)="openAddDialogO()">+</button>
+</div>
+
+<div class="modal fade" bsModal id="Addorg" tabindex="-1" role="dialog" aria-labelledby="riskDialogLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #00AEEF;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title" id="riskDialogLabel">{{organizationHtmlDialogLabel}}</h2> </div>
+      <div class="modal-body">
+        <form #orgForm="ngForm">
+
+          <div class=" row form-group">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <label class="required">Name</label>
+              <textarea  resizeable="none" type="text" class="form-control" [(ngModel)]="organizationEntry.name" name="name" required></textarea>
+            </div>
+            <div class=" col-lg-4 col-md-4 col-sm-12">
+              <label class="">Role </label>
+              <textarea resizeable="none" type="text" class="form-control" [(ngModel)]="organizationEntry.role" name="role" required></textarea>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <label class="">Entity</label>
+              <textarea  resizeable="none" type="text" class="form-control" [(ngModel)]="organizationEntry.entity" name="entit" required></textarea>
+            </div>
+            <div class=" col-lg-4 col-md-4 col-sm-12">
+              <label class="">Responsabilities </label>
+              <textarea resizeable="none" type="text" class="form-control" [(ngModel)]="organizationEntry.responsibilities" name="res" required></textarea>
+            </div>
+            <div class=" col-lg-4 col-md-4 col-sm-12">
+              <label class="required">Mail </label>
+              <textarea resizeable="none" type="text" class="form-control" [(ngModel)]="organizationEntry.mail" name="mail" required></textarea>
+            </div>
+            <div class=" col-lg-4 col-md-4 col-sm-12">
+              <label class="">Phone</label>
+              <textarea resizeable="none" type="text" class="form-control" [(ngModel)]="organizationEntry.phone" name="phone" required></textarea>
+            </div>
+            <div class=" col-lg-4 col-md-4 col-sm-12">
+              <label class="">Status</label>
+              <textarea resizeable="none" type="text" class="form-control" [(ngModel)]="organizationEntry.status" name="stat" required></textarea>
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" (click)="saveO()" [disabled]="organizationEntry.name =='' || organizationEntry.mail == '' " class="btn btn-primary" data-dismiss="modal">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" bsModal id="deleteOrg" tabindex="-1" role="dialog" aria-labelledby="DeleteDialogLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: red;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title" id="DeleteDialogLabel">Are you sure you want to delete this?</h2> </div>
+      <div class="modal-body">
+        <form>
+          <div>
+            <label class="control-label" >Name:&nbsp; </label>
+            <span >{{organizationEntry.name}}</span>
+            <br/>
+            <label class="control-label">Role:&nbsp; </label>
+            <span>{{organizationEntry.role}}</span>
+            <br/>
+            <label class="control-label">Entity:&nbsp; </label>
+            <span>{{organizationEntry.entity}}</span>
+            <br/>
+            <label class="control-label" >Responsabilities:&nbsp; </label>
+            <span>{{organizationEntry.responsibilities}}</span>
+            <br/>
+            <label class="control-label" >Mail:&nbsp; </label>
+            <span>{{organizationEntry.mail}}</span>
+            <br/>
+            <label class="control-label" >Phone:&nbsp; </label>
+            <span>{{organizationEntry.phone}}</span>
+            <br/>
+            <label class="control-label" >Status:&nbsp; </label>
+            <span>{{organizationEntry.status}}</span>
+
+
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" (click)="deleteTableRowO()" data-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

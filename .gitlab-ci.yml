@@ -1,0 +1,53 @@
+image: gitlab-registry.proxym-group.net/docker/ngdevbox:4
+
+stages:
+  - build
+  - test
+  - review
+
+cache:
+  untracked: true
+  key: "$CI_COMMIT_REF_NAME"
+  paths:
+    - node_modules/
+    - sonar-reports/
+    - package-lock.json
+
+build:
+  stage: build
+  tags:
+    - docker
+  before_script:
+    - npm install
+  script:
+    - npm run-script build
+  only:
+    - /^feature\/.+$/
+    - /^bugfix\/.+$/
+    - develop
+
+test:
+  stage: test
+  tags:
+    - docker
+  script:
+    - npm run-script test
+  dependencies:
+    - build
+  only:
+    - /^feature\/.+$/
+    - /^bugfix\/.+$/
+    - develop
+
+review:
+  stage: review
+  tags:
+    - docker
+  script:
+    - sh scripts/sonar-scanner.sh
+  dependencies:
+    - test
+  only:
+    - /^feature\/.+$/
+    - /^bugfix\/.+$/
+    - develop

@@ -1,0 +1,9 @@
+.selected{
+color: black;
+background-color:  white ;
+  border: solid black 2px;
+}
+label {
+  margin: 10px;
+  font-weight: bold;
+}

@@ -1,0 +1,184 @@
+<div class="row  rowparent  m-b-20">
+  <div class="col-md-3 col-sm-6 info-box">
+    <div class="media">
+      <div class="media-left">
+        <span class="icoleaf bg-primary text-white"><i class="mdi mdi-checkbox-marked-circle-outline"></i></span>
+      </div>
+      <div class="media-body">
+        <h3 class="info-count text-blue">24</h3>
+        <p class="info-text font-12">Completed Projects</p>
+        <span class="hr-line"></span>
+        <p class="info-ot font-15">This Year<span class="label label-rounded label-success">4</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-6 info-box">
+    <div class="media">
+      <div class="media-left">
+        <span class="icoleaf bg-info text-white"><i class="mdi mdi-comment-text-outline"></i></span>
+      </div>
+      <div class="media-body">
+        <h3 class="info-count text-blue">21</h3>
+        <p class="info-text font-12">FeedBack</p>
+        <span class="hr-line"></span>
+        <p class="info-ot font-15">This Year<span class="label label-rounded label-info">9</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-6 info-box">
+    <div class="media">
+      <div class="media-left">
+        <span class="icoleaf bg-success text-white"><i class="mdi mdi-coin"></i></span>
+      </div>
+      <div class="media-body">
+        <h3 class="info-count text-blue">&#36;29475</h3>
+        <p class="info-text font-12">Total Projects Value</p>
+        <span class="hr-line"></span>
+        <p class="info-ot font-15">This Year : <span class="text-blue font-semibold">&#36;54578</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-6 info-box b-r-0">
+    <div class="media">
+      <div class="media-left p-r-5">
+        <div id="earning" class="e" data-percent="60">
+          <div id="pending" class="p" data-percent="55"></div>
+          <div id="booking" class="b" data-percent="50"></div>
+        </div>
+      </div>
+      <div class="media-body">
+        <h2 class="text-blue font-22 m-t-0">Projects</h2>
+        <ul class="p-0 m-b-20">
+          <li><i class="fa fa-circle m-r-5 text-success"></i>80% Finished</li>
+          <li><i class="fa fa-circle m-r-5 text-info"></i>15% In Progress</li>
+          <li><i class="fa fa-circle m-r-5 text-danger"></i>5% Halt</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row m-b-20 ">
+  <div class=" col-lg-12 col-md-12 col-sm-12">
+    <div class="rowparent white-box stat-widget">
+      <div class="row">
+        <div class="col-md-3 col-sm-3">
+          <h4 class="box-title">Statistics</h4>
+        </div>
+        <div class="col-md-9 col-sm-9">
+
+          <ul class="list-inline">
+            <li>
+              <h6 class="font-15"><i class="fa fa-circle m-r-5 text-success"></i>Number of Projects</h6>
+            </li>
+            <li>
+              <h6 class="font-15"><i class="fa fa-circle m-r-5 text-primary"></i>Total Number Of Projects </h6>
+            </li>
+          </ul>
+        </div>
+        <x-chartist [data]="lineChartData" [type]="'Line'" [options]="lineChartOption" ></x-chartist>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="row  rowparent  m-b-20">
+  <div class="col-lg-12 col-md-12 col-sm-12 info-box">
+
+      <h3 class="box-title m-b-10">Projects List</h3>
+      <div class="dt-responsive">
+
+        <!-- <div class="panel-heading">User information</div>-->
+        <div class="table-responsive">
+          <table class="table table-striped color-table table-condensed  info-table table-bordered full-data-table"
+                 [mfData]="projects | dataFilter : filterQuery"
+                 #mf="mfDataTable"
+                 [mfRowsOnPage]="rowsOnPage"
+                 [(mfSortBy)]="sortBy"
+                 [(mfSortOrder)]="sortOrder">
+            <thead>
+            <tr>
+              <th>
+                <mfDefaultSorter  by="id">ID</mfDefaultSorter>
+              </th>
+              <th>
+                <mfDefaultSorter  by="projectName">Project Name</mfDefaultSorter>
+              </th>
+              <th>
+                <mfDefaultSorter  by="projectCode">Project Code</mfDefaultSorter>
+              </th>
+              <th>
+                <mfDefaultSorter  by="action"> Edit</mfDefaultSorter>
+              </th>
+
+            </tr>
+            <tr>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of mf.data">
+              <td class="col-lg-3 col-md-3 col-sm-3">{{item.id}}</td>
+              <td class="col-lg-3 col-md-3 col-sm-3">{{item.projectName}}</td>
+              <td class="col-lg-3 col-md-3 col-sm-3">{{item.projectCode}}</td>
+
+
+              <td class="col-lg-3 col-md-3 col-sm-3">
+                <div class="btn-group m-r-10">
+                  <button aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button">Form <span class="caret"></span></button>
+                  <ul role="menu" class="dropdown-menu">
+                    <li><a (click)="goToPresalesForm(item.id)" href="javascript:">Presales</a></li>
+                    <li><a (click)="goToPmoForm(item.id)" class="disabled" href="javascript:">PMO </a></li>
+                    <li><a (click)="goTofinaForm(item.id)" class="disabled" href="javascript:"> Financial</a></li>
+                    <li class="divider"></li>
+
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+              <td colspan="3">
+                <mfBootstrapPaginator class="pagination-main "></mfBootstrapPaginator>
+              </td>
+              <td colspan="1">
+                <button  type="button" class="effect btn btn-success waves-waves-light" data-toggle="modal" data-target="#addnewproject"><span class="btn-label"><i class="fa fa-plus"></i></span>Add New Project</button>
+
+              </td>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="modal fade" bsModal id="addnewproject" tabindex="-1" role="dialog" aria-labelledby="riskDialogLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-danger   " style="background-color: #00AEEF;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title" id="DeleteDialogLabel">Are you sure ?</h2>
+
+      </div>
+      <form
+        #createfrom = "ngForm" >
+      <div class="modal-body">
+        <div class="m-20 text-dark">
+
+          <h5> Warning: are you sure that you want to create a new project ?
+            </h5>
+          <label for="name">Project Name:</label>
+          <input type="text" class="form-control " id="name"
+                 required
+                 [(ngModel)]="projectName" name="name"  #name="ngModel">
+          <div [hidden]="name.valid "
+               class="alert alert-danger"> Please insert Project Name </div>
+        </div>
+        <button [disabled]="!createfrom.form.valid" class="btn btn-success waves-effect waves-light"  data-dismiss="modal" type="button" (click)="onClickAddNewProject()"><span class="btn-label"><i class="fa fa-plus"></i></span>Add </button>
+        <button class="btn btn-danger waves-effect waves-light m-l-10" data-dismiss="modal" type="button" ><span class="btn-label"><i class="fa fa-times-circle"></i></span>Cancel </button>
+
+      </div>
+      </form>
+    </div>
+    </div>
+</div>

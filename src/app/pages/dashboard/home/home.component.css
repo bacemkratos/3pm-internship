@@ -1,0 +1,24 @@
+.rowparent {
+  box-shadow: rgba(17,7,3,0.46) 2px 2px 2px;
+}
+.modal-dialog {
+  vertical-align: middle;
+}
+.modal-content {
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+}
+.modal-header {
+  border-radius: 5px;
+  border: none;
+}
+.modal-body {
+  margin: 15px;
+}
+.modal-dialog {
+  vertical-align: middle;
+}
+.modal-header h2 {
+  color: white;
+}

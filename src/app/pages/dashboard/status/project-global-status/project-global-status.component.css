@@ -1,0 +1,26 @@
+.full-data-table {
+
+  box-shadow: black 15px 1px 1px  ;
+}
+
+.full-data-table thead{
+ background-color: #dde9ff;
+}
+
+.full-data-table  td{
+ color: black;
+  padding: auto;
+  content: normal;
+
+}
+
+th{
+
+  text-align: center;
+
+
+}
+td{
+  text-align: center;
+
+}

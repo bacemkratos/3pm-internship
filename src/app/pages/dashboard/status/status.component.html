@@ -1,0 +1,38 @@
+<div class="row">
+<app-filters (applyF)="applyFilters()" [filters]="filters"></app-filters>
+
+</div>
+<div clas="row">
+  <div class="col-lg-12 col-m-12 col-sm-12 col-xs-12 customtab">
+    <div class="white-box panel-body">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="true"><span > Global Status</span></a></li>
+        <li role="presentation" class=""><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false" (click)="projectHealthComp.loadProjectHealthData(dashboardService.projectsList[dashboardService.selectedProjectIndex].id);dashboardService.resetStore();"><span>Project Health Status</span></a></li>
+        <li role="presentation" class=""><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" aria-expanded="false" (click)="finHealthComp.loadFinancialHealthData(dashboardService.projectsList[dashboardService.selectedProjectIndex].id);dashboardService.resetStore();"><span >Project Financial Status</span></a></li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+          <app-project-global-status   ></app-project-global-status>
+          <div class="clearfix"></div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profile">
+          <app-project-health-status></app-project-health-status>
+          <div class="clearfix"></div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="messages">
+          <app-financial-health-status ></app-financial-health-status>
+          <div class="clearfix"></div>
+        </div>
+
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-11">
+        <button class="btn btn-block btn-success csd" (click)="exportDashboard()">
+          <i class="fa fa-save fa-align-left m-r-10 fa-2x"></i>  Export Dashboard
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+

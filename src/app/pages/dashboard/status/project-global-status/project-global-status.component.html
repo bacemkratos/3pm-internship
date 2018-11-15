@@ -1,0 +1,227 @@
+<div class="row">
+  <div class="col-lg-12 col-sm-12 col-xs-12">
+
+    <div class="dt-responsive">
+      <div class="table-responsive">
+        <table class="table  table-bordered  full-data-table"
+               [mfData]="items | dataFilter : filterQuery"
+               #mf="mfDataTable"
+               [mfRowsOnPage]="rowsOnPage"
+               [(mfSortBy)]="sortBy"
+               [(mfSortOrder)]="sortOrder">
+          <thead class=" ">
+          <tr>
+            <th>
+              <mfDefaultSorter  by="project.projectName"> Project Name</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter  by="scopeStatus">Scope</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="scheduleStatus">Schedule</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter  by="costStatus">Cost</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="resourceStatus"> ResourceStatus</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="qualityStatus">Quality</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="satisfactionStatus">Satisfaction</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="date">Date </mfDefaultSorter>
+            </th>
+            <th>
+
+            </th>
+          </tr>
+          <tr>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of mf.data ">
+            <td>
+              <a href="javascript:">{{item.project.projectName}}</a>
+            </td>
+            <td>
+              <button *ngIf="item.scopeStatus==='good'" type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+              <button *ngIf="item.scopeStatus==='issue'" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+              <button *ngIf="item.scopeStatus==='risk'" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+            </td>
+            <td>
+              <button *ngIf="item.scheduleStatus==='good'" type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+              <button *ngIf="item.scheduleStatus==='issue'" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+              <button *ngIf="item.scheduleStatus==='risk'" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+            </td>
+            <td>
+              <button *ngIf="item.costStatus==='good'" type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+              <button *ngIf="item.costStatus==='issue'" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+              <button *ngIf="item.costStatus==='risk'" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+
+            </td>
+            <td>
+              <button *ngIf="item.resourceStatus==='good'" type="button" class="btn btn-success  btn-circle"><i class="fa fa-check"></i> </button>
+              <button *ngIf="item.resourceStatus==='issue'" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+              <button *ngIf="item.resourceStatus==='risk'" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+            </td>
+            <td>
+              <button *ngIf="item.qualityStatus==='good'" type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+              <button *ngIf="item.qualityStatus==='issue'" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+              <button *ngIf="item.qualityStatus==='risk'" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+            </td>
+            <td>
+              <button *ngIf="item.satisfactionStatus==='good'" type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+              <button *ngIf="item.satisfactionStatus==='issue'" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+              <button *ngIf="item.satisfactionStatus==='risk'" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+            </td>
+            <td>
+              {{item.date |  date: 'dd/MM/yyyy'}}
+            </td>
+            <td>
+              <a title="Edit" (click)="openDialog(item )" class="text-info" data-toggle="modal" data-target="#GloabalStatusModal" href="javascript:;" ><i class="fa fa-edit fa-1x"></i></a>
+            </td>
+          </tr>
+          </tbody>
+          <tfoot>
+
+          <tr>
+            <td colspan="9">
+              <mfBootstrapPaginator class="pagination-main center-align"></mfBootstrapPaginator>
+            </td>
+          </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-1">
+
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-11">
+    <button class="btn btn-block btn-primary">
+      <i class="fa fa-save fa-align-left m-r-10 fa-2x"></i>  Export Gloabal Status
+    </button>
+  </div>
+  <hr>
+</div>
+
+
+<!-- -->
+  <div   class="modal fade" bsModal id="GloabalStatusModal" tabindex="-1" role="dialog" aria-labelledby="GloabalStatusModelLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #00AEEF;">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h2 class="modal-title" id="GloabalStatusModelLabel">{{operation}}</h2> </div>
+        <div class="modal-body">
+             <div class="row">
+               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                   <label for="projectname"> Project: </label>
+                 <output id="projectname"> {{tempStatus.project.projectName}} </output>
+               </div>
+
+               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                 <label for="projectdate"> Last Modification Date : </label>
+                 <output id="projectdate"> {{tempStatus.date | date:'dd/MM/yyyy'}} </output>
+               </div>
+               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                 <label for="weekid"> Week : </label>
+                 <output id="weekid">{{selectedStatusWeek}}</output>
+               </div>
+             </div>
+          <div class="row m-t-25">
+            <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <label for="scope"> Scope: </label>
+              <select  id="scope"
+                       [ngClass]="{'bg-success  ': tempStatus.scopeStatus ==='good' ,'bg-warning  ': tempStatus.scopeStatus ==='issue' ,
+                        'bg-danger  ': tempStatus.scopeStatus ==='risk' }"
+                       [(ngModel)]="tempStatus.scopeStatus" class="form-control" >
+                <option   *ngFor="let p of statusList" [ngValue]="p">{{p}}</option>
+              </select>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <label for="schedule"> Schedule: </label>
+              <select  id="schedule" [(ngModel)]="tempStatus.scheduleStatus" class="form-control"
+                       [ngClass]="{'bg-success  ': tempStatus.scheduleStatus ==='good' ,'bg-warning  ': tempStatus.scheduleStatus ==='issue' ,
+                        'bg-danger  ': tempStatus.scheduleStatus ==='risk' }"
+              >
+                <option   *ngFor="let p of statusList" [ngValue]="p">{{p}}</option>
+              </select>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <label for="cost"> Cost:  </label>
+              <select  id="cost" [(ngModel)]="tempStatus.costStatus" class="form-control"
+                       [ngClass]="{'bg-success  ': tempStatus.costStatus ==='good' ,'bg-warning  ': tempStatus.costStatus ==='issue' ,
+                        'bg-danger  ': tempStatus.costStatus ==='risk' }"
+              >
+                <option   *ngFor="let p of statusList" [ngValue]="p">{{p}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="row m-t-25">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <label for="sat"> Satisfaction: </label>
+              <select  id="sat" [(ngModel)]="tempStatus.satisfactionStatus" class="form-control"
+                       [ngClass]="{'bg-success  ': tempStatus.satisfactionStatus ==='good' ,'bg-warning  ': tempStatus.satisfactionStatus ==='issue' ,
+                        'bg-danger  ': tempStatus.satisfactionStatus ==='risk' }"
+              >
+                <option   *ngFor="let p of statusList" [ngValue]="p">{{p}}</option>
+              </select>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <label for="quality"> Quality: </label>
+              <select  id="quality" [(ngModel)]="tempStatus.qualityStatus" class="form-control"
+                       [ngClass]="{'bg-success  ': tempStatus.qualityStatus ==='good' ,'bg-warning  ': tempStatus.qualityStatus ==='issue' ,
+                        'bg-danger  ': tempStatus.qualityStatus ==='risk' }"
+              >
+                <option   *ngFor="let p of statusList" [ngValue]="p">{{p}}</option>
+              </select>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <label for="res"> Resource:  </label>
+              <select  id="res" [(ngModel)]="tempStatus.resourceStatus" class="form-control"
+                       [ngClass]="{'bg-success  ': tempStatus.resourceStatus ==='good' ,'bg-warning  ': tempStatus.resourceStatus ==='issue' ,
+                        'bg-danger  ': tempStatus.resourceStatus ==='risk' }"
+              >
+                <option   *ngFor="let p of statusList" [ngValue]="p">{{p}}</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button
+             [disabled]="tempStatus.scopeStatus ==='' || tempStatus.scheduleStatus==='' || tempStatus.costStatus===''
+             || tempStatus.qualityStatus==='' || tempStatus.satisfactionStatus ==='' || tempStatus.resourceStatus==='' "
+            class="btn btn-primary" data-dismiss="modal" (click)="saveStatus()"> Save </button>
+        </div>
+      </div>
+    </div>
+  </div>
+

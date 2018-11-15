@@ -1,0 +1,93 @@
+<div class=" panel panel-info">
+  <div class="panel-heading center-block center-align ">
+
+    <a  data-toggle="collapse" href="#b1" role="button" aria-expanded="false" aria-controls="b1">
+      Filters
+    </a>
+
+  </div>
+  <div id="b1" class=" panel-body collapse">
+
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <label for="projectManager" >Project Manager</label>
+      <select  [(ngModel)]="filters.projectManager" class="form-control" id="projectManager">
+        <option></option>
+        <option   *ngFor="let p of projectManagersList" [ngValue]="p">{{p}}</option>
+      </select>
+
+      <label for="projectStatus" >Project Status</label>
+      <select  [(ngModel)]="filters.projectStatus"  (select)="projectStatus=$event"  class="form-control" id="projectStatus">
+        <option></option>
+        <option   *ngFor="let p of projectStatusList" >{{p}}</option>
+      </select>
+      <label for="selectedweek" > Selected Week</label>
+      <select [(ngModel)]="filters.selectedWeek"  class="selectpicker"  data-live-search="true" class="form-control" id="selectedweek">
+        <option></option>
+        <option *ngFor="let p of weeksList" [ngValue]="p">week {{p}}</option>
+      </select>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+
+      <div id="scope" class="">
+       <label for="scope"> Scope</label>  <br>
+      <button (click)="clickOnFiltre('good',filters.scope)"  [ngClass]="{'selected': checkStateInFiltre('good',filters.scope) }"type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+      <button (click)="clickOnFiltre('issue',filters.scope)"  [ngClass]="{'selected':  checkStateInFiltre('issue',filters.scope) }" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+      <button (click)="clickOnFiltre('risk',filters.scope)"  [ngClass]="{'selected':  checkStateInFiltre('risk',filters.scope) }" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+      </div>
+
+      <div id="schedule" class="m-t-10">
+        <label for="schedule"> Schedule</label> <br>
+        <button (click)="clickOnFiltre('good',filters.schedule)"  [ngClass]="{'selected':checkStateInFiltre('good',filters.schedule) }"type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+        <button (click)="clickOnFiltre('issue',filters.schedule)"  [ngClass]="{'selected': checkStateInFiltre('issue',filters.schedule)}" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+        <button (click)="clickOnFiltre('risk',filters.schedule)"  [ngClass]="{'selected': checkStateInFiltre('risk',filters.schedule) }" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+      </div>
+
+      <div id="cost" class="m-t-10">
+        <label for="cost"> Cost</label> <br>
+        <button (click)="clickOnFiltre('good',filters.cost)"  [ngClass]="{'selected':checkStateInFiltre('good',filters.cost) }"type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+        <button (click)="clickOnFiltre('issue',filters.cost)"  [ngClass]="{'selected': checkStateInFiltre('issue',filters.cost) }" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+        <button (click)="clickOnFiltre('risk',filters.cost)"  [ngClass]="{'selected': checkStateInFiltre('risk',filters.cost) }" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+      </div>
+
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+
+      <div id="resource">
+        <label for="resource"> Resource</label> <br>
+        <button (click)="clickOnFiltre('good',filters.resource)"  [ngClass]="{'selected': checkStateInFiltre('good',filters.resource) }"type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+        <button (click)="clickOnFiltre('issue',filters.resource)"  [ngClass]="{'selected':checkStateInFiltre('issue',filters.resource)}" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+        <button (click)="clickOnFiltre('risk',filters.resource)"  [ngClass]="{'selected': checkStateInFiltre('risk',filters.resource)}" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+      </div>
+
+      <div id="quality" class="m-t-10">
+        <label for="quality"> Quality</label> <br>
+        <button (click)="clickOnFiltre('good',filters.quality)"  [ngClass]="{'selected': checkStateInFiltre('good',filters.quality) }"type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+        <button (click)="clickOnFiltre('issue',filters.quality)"  [ngClass]="{'selected':checkStateInFiltre('issue',filters.quality)  }" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+        <button (click)="clickOnFiltre('risk',filters.quality)"  [ngClass]="{'selected':checkStateInFiltre('risk',filters.quality)  }" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+      </div>
+
+      <div id="satisfaction" class="m-t-10">
+        <label for="satisfaction"> Customer Satisfied</label> <br>
+        <button (click)="clickOnFiltre('good',filters.satisfaction)"  [ngClass]="{'selected': checkStateInFiltre('good',filters.satisfaction) }"type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i> </button>
+        <button (click)="clickOnFiltre('issue',filters.satisfaction)"  [ngClass]="{'selected': checkStateInFiltre('issue',filters.satisfaction) }" type="button" class="btn btn-warning btn-circle"><i class="fa fa-exclamation"></i> </button>
+        <button (click)="clickOnFiltre('risk',filters.satisfaction)"  [ngClass]="{'selected': checkStateInFiltre('risk',filters.satisfaction) }" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
+      </div>
+
+    </div>
+
+
+    <div class="row m-t-10">
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" >
+
+      </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
+     <button class="btn btn-primary"  type="button" (click)="resetFilter()"> <i class="	m-r-5	fa fa-history"></i>Reset</button>
+      <button class="btn btn-success"  type="button" (click)="applyFilter()"> <i class="	m-r-5 fa fa-filter"></i>Filter</button>
+    </div>
+    </div>
+  </div>
+</div>
+

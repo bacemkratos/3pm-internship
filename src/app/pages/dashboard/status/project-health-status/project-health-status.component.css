@@ -1,0 +1,80 @@
+.vtabs .tabs-vertical li a{
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+.white-box{
+  padding-right: 0;
+  padding-left: 0px;
+}
+.tab-content{
+  width: 100%;
+}
+table{
+  width: 60%;
+  margin: 0 auto;
+}
+th{
+  background-color: #3A3A3F;
+  text-align: center;
+  font-size: 13px;
+  color: white;
+  width: 16%;
+  height: 25px;
+}
+td{
+  text-align: center;
+  font-size: 13px;
+}
+.ribbon-wrapper{
+  margin: 3px;
+}
+span{
+  color: black;
+}
+li {
+  table-layout: fixed;
+  display: table;
+  width: 90px;
+}
+output{
+
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.projectListing {
+  overflow:hidden;
+  overflow-y:scroll;
+  height: 70vh;
+}
+ul,li{
+  width: 20vh;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #e3ffef;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #9acaff;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6e55ff;
+}
+li.active a,li.active a:focus,li.active a:hover, li.active a span{
+  /*border-right: 2px solid indigo;*/
+  border-bottom: 0;
+  background-color: #30a2fb;
+  color: white;
+}
+input{
+  width: 40%;
+}
